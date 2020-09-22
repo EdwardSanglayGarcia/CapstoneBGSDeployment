@@ -508,7 +508,11 @@ namespace MVCCapstoneBGS.Controllers
         {
             ViewBag.VBLayout = Layout_CU;
             ViewBag.DATETIMENOW = DateTime.Now.Date.ToLongDateString() + " - " + DateTime.Now.TimeOfDay;
-            
+            var Badges = _IDataProvider.GetLeaderboards_Year(5, DateTime.Now.Year).Where(x => x.UserInformationID == 1);
+
+            var landy1 = Badges.Select(x => x.Water_10_Reports);
+
+
             _IDataProvider.GetLeaderboards_Year(5, DateTime.Now.Year);
             ViewBag.Title = LabelStruct.CommunityUser.Achievements;
             return View();
