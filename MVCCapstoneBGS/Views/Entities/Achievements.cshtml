@@ -1,27 +1,219 @@
 ﻿
 @{
-    Layout = @ViewBag.VBLayout; ;
+    Layout = "~/TerraTech/TerraShared/CommunityUser.cshtml";
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>CommunityUser</title>
+    <style>
+        /*imgNotDone {
+            -webkit-filter: grayscale(100%);*/ /* Safari 6.0 - 9.0 */
+            /*filter: grayscale(100%);
+        }*/
+    </style>
+
 </head>
 <body>
 
-    <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item"><a href="">Community User</a></li>
-        <li class="breadcrumb-item active">Homepage</li>
-    </ol>
-
     <div class="card mb-4">
+        <div class="card-header"></div>
+
+
         <div class="card-body">
-            Recent and Current Records of Community Users
+
+            <h1 align="center">MY ACHIEVEMENTS</h1>
+            <div class="control-label col-xs-12 col-sm-4">
+                <label class="asteriskRequired"></label>
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-3">
+                    <center>
+                        <img src="https://achievement-images.teamtreehouse.com/badges_githubBasics_Stage2.png" style="width:200px;height:230px;">
+                    </center>
+                </div>
+
+                <div class="col-md-9">
+                    @*<table id="SubmittedTable" class="table table-hover table-striped table-bordered table-responsive-sm" cellspacing="0" style="width:100%; "></table>*@
+                    <img src="https://achievement-images.teamtreehouse.com/badges_githubBasics_Stage2.png" style="width:100px;height:100px;">
+                    <img src="https://achievement-images.teamtreehouse.com/badges_githubBasics_Stage2.png" style="width:100px;height:100px;">
+                    <img src="https://achievement-images.teamtreehouse.com/badges_githubBasics_Stage2.png" style="width:100px;height:100px;">
+                    <img src="https://achievement-images.teamtreehouse.com/badges_githubBasics_Stage2.png" style="width:100px;height:100px;">
+                    <img src="https://achievement-images.teamtreehouse.com/badges_githubBasics_Stage2.png" style="width:100px;height:100px;">
+                    <img src="https://achievement-images.teamtreehouse.com/badges_githubBasics_Stage2.png" style="width:100px;height:100px;">
+                    <img src="https://achievement-images.teamtreehouse.com/badges_githubBasics_Stage2.png" style="width:100px;height:100px;">
+                    <img src="https://achievement-images.teamtreehouse.com/badges_githubBasics_Stage2.png" style="width:100px;height:100px;">
+                    <img src="https://achievement-images.teamtreehouse.com/badges_githubBasics_Stage2.png" style="width:100px;height:100px;">
+                    <img src="https://achievement-images.teamtreehouse.com/badges_githubBasics_Stage2.png" style="width:100px;height:100px;">
+                    <img src="https://achievement-images.teamtreehouse.com/badges_githubBasics_Stage2.png" style="width:100px;height:100px;">
+                    <img src="https://achievement-images.teamtreehouse.com/badges_githubBasics_Stage2.png" style="width:100px;height:100px;">
+                    <img src="https://achievement-images.teamtreehouse.com/badges_githubBasics_Stage2.png" style="width:100px;height:100px;">
+                    <img src="https://achievement-images.teamtreehouse.com/badges_githubBasics_Stage2.png" style="width:100px;height:100px;">
+                    <img src="https://achievement-images.teamtreehouse.com/badges_githubBasics_Stage2.png" style="width:100px;height:100px;">
+                    <img src="https://achievement-images.teamtreehouse.com/badges_githubBasics_Stage2.png" style="width:100px;height:100px;">
+                    <img src="https://achievement-images.teamtreehouse.com/badges_githubBasics_Stage2.png" style="width:100px;height:100px;">
+                    <img src="https://achievement-images.teamtreehouse.com/badges_githubBasics_Stage2.png" style="width:100px;height:100px;">
+                </div>
+            </div>
+
+
         </div>
+
+        <div class="card-footer small text-muted"></div>
     </div>
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="card-header" style="text-align:center;">Land Achievements</div>
+            <center>
+                [ADD IMAGE HERE] [ADD IMAGE HERE] [ADD IMAGE HERE] [ADD IMAGE HERE]
+            </center>
+            <div class="card-footer"></div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card-header" style="text-align:center;">Water Achievements</div>
+            <center>
+                <img src="https://i.imgur.com/XTUH37q.png" style="width:150px;height:150px;" data-toggle="popover-click" data-content="<h1>Hello Wworld</h1>">
+                <img src="https://i.imgur.com/XTUH37q.png" style="width:150px;height:150px;" data-toggle="popover-click" data-content="<h1>Hello Wworld</h1>">
+                <img src="https://i.imgur.com/XTUH37q.png" style="width:150px;height:150px;" data-toggle="popover-click" data-content="<h1>Hello Wworld</h1>">
+                <img src="https://i.imgur.com/XTUH37q.png" style="width:150px;height:150px;" data-toggle="popover-click" data-content="<h1>Hello Wworld</h1>">
+
+            </center>
+            <div class="card-footer"></div>
+        </div>
+
+    </div>
+    <img src="https://i.imgur.com/XTUH37q.png" style="width:250px;height:250px; filter: grayscale(100%);" data-toggle="popover-click" data-content="<h1>Hello Wworld</h1>">
+    <img src="https://i.imgur.com/XTUH37q.png" style="width:250px;height:250px;" data-toggle="popover-click" data-content="<h1>Hello Wworld</h1>">
 
 </body>
 </html>
+
+
+<script>
+
+
+    $(document).ready(function () {
+
+        LoadSubmittedTable();
+        $('[data-toggle="popover-hover"]').popover({
+            html: true,
+            trigger: 'hover',
+            placement: 'bottom',
+            content: function () { return '<img src="' + $(this).data('img') + '" />'; }
+        });
+
+        // popovers initialization - on click
+        $('[data-toggle="popover-click"]').popover({
+            html: true,
+            trigger: 'click',
+            placement: 'top',
+            content: function () { return '<img src="' + $(this).data('img') + '" />'; }
+        });
+
+
+
+    });
+
+
+    // popovers initialization - on hover
+
+    function LoadSubmittedTable() {
+        table = $('#SubmittedTable').DataTable({
+            bLengthChange: false,
+            destroy: true,
+            responsive: true,
+            searching: false, paging: false, info: false,
+            pageLength: 3,
+            order: [[1, 'asc']],
+            ajax: {
+                type: "GET",
+                "url": "/DataGet/GetCurrentCaseReport",
+                data: {
+                    UpdatedStatusID: 1,
+                },
+                dataSrc: function (json) {
+                    var a = new Array();
+                    for (var b = 0; b <= json.length - 1; b++) {
+                        var c = json[b];
+                        a.push({
+                            'CaseReportID': c.CaseReportID,
+                            'UserInformationID': c.UserInformationID,
+                            'FamilyName': c.FamilyName,
+                            'GivenName': c.GivenName,
+                            'MaidenName': c.MaidenName,
+                            'FullName': c.GivenName + " " + c.MaidenName + " " + c.FamilyName,
+                            'EnvironmentalConcernID': c.EnvironmentalConcernID,
+                            'DateReported': c.DateReported,
+                            'Concern': c.Concern,
+                            'UpdatedStatus': c.UpdatedStatus,
+                            'UpdatedStatusDate': c.UpdatedStatusDate,
+                            'CaseLocation': c.CaseLocation,
+                            'XCoordinates': c.XCoordinates,
+                            'YCoordinates': c.YCoordinates,
+                            'Coordinates': "(" + c.XCoordinates + "," + c.YCoordinates + ")",
+                            'DateUpdated': c.DateUpdated,
+                            'Notes': c.Notes,
+                            'CaseReportPhoto': c.CaseReportPhoto,
+                            'Base64Photo': c.Base64Photo
+                        }); 
+                    }
+                    return a;
+                },
+            },
+            columns: [
+
+                {
+                    title: "No.",
+                    data: "CaseReportID"
+                },
+                {
+                    title: "Date",
+                    data: "DateReported",
+                    "render": function (value) {
+                        if (value === null) return "";
+
+                        var pattern = /Date\(([^)]+)\)/;
+                        var results = pattern.exec(value);
+                        var dt = new Date(parseFloat(results[1]));
+
+                        return (dt.getMonth() + 1) + "/" + dt.getDate() + "/" + dt.getFullYear();
+                    }
+                },
+                {
+                    title: "Date Updated",
+                    data: "UpdatedStatusDate",
+                    "render": function (value) {
+                        if (value === null) return "";
+
+                        var pattern = /Date\(([^)]+)\)/;
+                        var results = pattern.exec(value);
+                        var dt = new Date(parseFloat(results[1]));
+
+                        return (dt.getMonth() + 1) + "/" + dt.getDate() + "/" + dt.getFullYear();
+                    },
+                    visible: false
+                },
+
+                {
+                    title: "Area",
+                    data: "CaseLocation"
+                },
+                {
+                    title: "Concern",
+                    data: "Concern"
+                },
+
+            ],
+            'columnDefs': [
+                {
+                    "className": "dt-center", "targets": "_all"
+                }],
+        });
+
+        return table;
+    };
+</script>

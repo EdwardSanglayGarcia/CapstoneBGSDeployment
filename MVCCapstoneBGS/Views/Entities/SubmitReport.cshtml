@@ -25,6 +25,7 @@
     </div>
 
 
+
     @using (Html.BeginForm("SubmitReport", "Entities", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
@@ -214,7 +215,7 @@
             Swal.fire({
                 title: 'Verifying Location!',
                 html: 'Powered by TerraTechPH',
-                timer: 20000,
+                timer: 1000,
                 timerProgressBar: true,
                 allowOutsideClick: false,
                 allowEscapeKey: false,
