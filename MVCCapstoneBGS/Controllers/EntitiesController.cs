@@ -508,9 +508,42 @@ namespace MVCCapstoneBGS.Controllers
         {
             ViewBag.VBLayout = Layout_CU;
             ViewBag.DATETIMENOW = DateTime.Now.Date.ToLongDateString() + " - " + DateTime.Now.TimeOfDay;
-            var Badges = _IDataProvider.GetLeaderboards_Year(5, DateTime.Now.Year).Where(x => x.UserInformationID == 1);
+            int PASS_UserInformationID = Convert.ToInt32(Session["UserInformationID"]);
 
-            var landy1 = Badges.Select(x => x.Water_10_Reports);
+            var Badges = _IDataProvider.GetLeaderboards_Year(5, DateTime.Now.Year).Where(x => x.UserInformationID == PASS_UserInformationID);
+
+            ViewBag.EarthBender = Badges.Select(x => x.Land_5_Reports).FirstOrDefault().ToString();
+            ViewBag.BuddyOfLand = Badges.Select(x => x.Land_10_Reports).FirstOrDefault().ToString();
+            ViewBag.TheValueOfLand = Badges.Select(x => x.Land_15_Reports).FirstOrDefault().ToString();
+            ViewBag.LandExpert = Badges.Select(x => x.Land_20_Reports).FirstOrDefault().ToString();
+            ViewBag.TrueHeroInLand= Badges.Select(x => x.Land_25_Reports).FirstOrDefault().ToString();
+            ViewBag.LandLover = Badges.Select(x => x.Land_30_Reports).FirstOrDefault().ToString();
+            ViewBag.CaptainSaverOfLand = Badges.Select(x => x.Land_50_Reports).FirstOrDefault().ToString();
+
+            ViewBag.WaterBender = Badges.Select(x => x.Water_5_Reports).FirstOrDefault().ToString();
+            ViewBag.BuddyOfWater = Badges.Select(x => x.Water_10_Reports).FirstOrDefault().ToString();
+            ViewBag.TheValueOfWater = Badges.Select(x => x.Water_15_Reports).FirstOrDefault().ToString();
+            ViewBag.WaterExpert = Badges.Select(x => x.Water_20_Reports).FirstOrDefault().ToString();
+            ViewBag.TrueHeroInWater = Badges.Select(x => x.Water_25_Reports).FirstOrDefault().ToString();
+            ViewBag.WaterLover = Badges.Select(x => x.Water_30_Reports).FirstOrDefault().ToString();
+            ViewBag.CaptainSaverOfWater = Badges.Select(x => x.Water_50_Reports).FirstOrDefault().ToString();
+
+
+
+
+            var landy1 = Badges.Select(x => x.Water_10_Reports).FirstOrDefault().ToString();
+
+            if (landy1 == "false")
+            {
+                ViewBag.LandTest = "filter: grayscale(100%);";
+            }
+
+            else
+            {
+                ViewBag.LandTest = string.Empty;
+            }
+
+
 
 
             _IDataProvider.GetLeaderboards_Year(5, DateTime.Now.Year);

@@ -8,6 +8,11 @@ namespace MVCCapstoneBGS
     public struct LabelStruct
     {
 
+        public struct Badges
+        {
+            public const string overallTop_1 = "https://i.imgur.com/M2yg9DO.png";
+        }
+
         //LIST OF MESSAGES
         public struct Administrator_Message
         {

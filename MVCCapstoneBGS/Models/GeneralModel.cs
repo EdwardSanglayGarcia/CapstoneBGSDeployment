@@ -120,7 +120,6 @@ namespace MVCCapstoneBGS
         public string Area_3_Report { get; set; }
         public string Area_4_Report { get; set; }
         public string Area_5_Report { get; set; }
-
         public int Areas { get; set; }
         public string FullName { get; set; }
         public string Username { get; set; }

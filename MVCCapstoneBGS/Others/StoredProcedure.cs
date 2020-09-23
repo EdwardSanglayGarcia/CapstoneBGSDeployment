@@ -69,4 +69,8 @@ namespace MVCCapstoneBGS
 
 
     }
+
+    public enum Priority {
+        
+    }
 }
