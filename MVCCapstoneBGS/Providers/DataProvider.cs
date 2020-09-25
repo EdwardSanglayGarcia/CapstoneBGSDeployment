@@ -234,6 +234,7 @@ namespace MVCCapstoneBGS
                 param.Add("@YCoordinates", UI.YCoordinates);
                 param.Add("@CaseLocation", UI.CaseLocation);
                 param.Add("@CaseReportPhoto", UI.CaseReportPhoto);
+                param.Add("@Notes",UI.Notes);
 
                 result = con.Query<CaseReport>(
                     StoredProcedureEnum.I_CaseReport.ToString(), param, commandType: CommandType.StoredProcedure).ToList();

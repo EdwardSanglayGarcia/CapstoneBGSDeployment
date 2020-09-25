@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <title>@LabelStruct.Administrator.Twitter</title>
     <style>
         .tweet-box {
             font-size: 18px;
@@ -70,86 +70,133 @@
     </ol>
     <div class="card mb-4">
         <div class="card-body">
-            Let other people know about the status of reports! at
+           @LabelStruct.Administrator_Message.M_Twitter
             <a target="_blank" href="https://www.Twitter.com/TerraTechPH/" style="font-style:italic">&#64;TerraTechPH</a>
         </div>
     </div>
 
-    <div class="card-header tab-card-header">
-        <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 
-            <li class="nav-item">
-                <a class="nav-link" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="One" aria-selected="true">Tweet Completed</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="Two" aria-selected="false">Tweet Updates</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="three-tab" data-toggle="tab" href="#three" role="tab" aria-controls="Three" aria-selected="false">Area Update</a>
-            </li>
-        </ul>
-    </div>
+        <li class="nav-item">
+            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-submitted" role="tab" aria-controls="pills-home" aria-selected="true">Completed Reports</a>
+        </li>
 
-    <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade p-3 " id="one" role="tabpanel" aria-labelledby="one-tab" aria-selected="false">
-            <table id="CaseReportTable" class="table table-hover table-striped table-bordered table-responsive-sm" cellspacing="0" style="width:100%; overflow:auto; word-break:break-all;"></table>
-            @*   <table id="CaseReportTable" class="table table-hover table-striped table-bordered table-responsive" cellspacing="0" style="width:100%; overflow:auto; word-break:break-all;"></table>
-                **@
+        <li class="nav-item">
+            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-rejected" role="tab" aria-controls="pills-profile" aria-selected="false">Area and Status</a>
+        </li>
 
-        </div>
-        <div class="tab-pane fade p-3" id="two" role="tabpanel" aria-labelledby="two-tab">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-arrow-right mr-1"></i>
-                            Tweet Concerns!
-                        </div>
+        <li class="nav-item">
+            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-accepted" role="tab" aria-controls="pills-contact" aria-selected="false">Post a Tweet!</a>
+        </li>
+    </ul>
 
-                        <div class="card-body">
-                            <textarea class="tweet-input tbTweetReport" rows="7" name="message" disabled="disabled">@ViewBag.UpdateStatus</textarea>
-                            <div> <button class="btnTweetR">Tweet</button></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-arrow-right mr-1"></i>
-                            Post a Tweet!
-                        </div>
-                        <div class="card-body">
-                            <textarea class="tweet-input tbTweetPost" rows="7" name="message"></textarea>
 
-                            <div> <button class="btnTweetP">Tweet</button></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="tab-pane fade p-3" id="three" role="tabpanel" aria-labelledby="three-tab">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-arrow-right mr-1"></i>
-                            Tweet Concerns!
-                        </div>
+    <div class="tab-content" id="pills-tabContent">
 
-                        <div class="card-body">
-                            <textarea class="tweet-input tbTweetArea" rows="7" name="message" disabled="disabled">@ViewBag.AreaTweet</textarea>
-                            <div> <button class="btnTweetA">Tweet</button></div>
-                        </div>
-                    </div>
+        <div class="tab-pane fade show active" id="pills-submitted" role="tabpanel" aria-labelledby="pills-home-tab">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-area mr-1"></i>
+                    Submitted Concerns
                 </div>
 
+                <div class="card-body">
+
+                    <table id="CaseReportTable" class="table table-hover table-striped table-bordered table-responsive-sm" cellspacing="0" style="width:100%; overflow:auto; word-break:break-all;"></table>
+                    @*   <table id="CaseReportTable" class="table table-hover table-striped table-bordered table-responsive" cellspacing="0" style="width:100%; overflow:auto; word-break:break-all;"></table>
+        **@
+
+                </div>
+
+                <div class="card-footer small text-muted">Data as of @ViewBag.DATETIMENOW</div>
             </div>
         </div>
 
+        <div class="tab-pane fade" id="pills-rejected" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-area mr-1"></i>
+                    Rejected Concerns
+                </div>
+
+                <div class="card-body">
+
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <i class="fas fa-arrow-right mr-1"></i>
+                                    Tweet Status!
+                                </div>
+
+                                <div class="card-body">
+                                    <textarea class="tweet-input tbTweetReport" rows="7" name="message" disabled="disabled">@ViewBag.UpdateStatus</textarea>
+                                    <div> <button class="btnTweetR">Tweet</button></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <i class="fas fa-arrow-right mr-1"></i>
+                                    Area Update!
+                                </div>
+                                <div class="card-body">
+
+
+
+                                    <textarea class="tweet-input tbTweetArea" rows="7" name="message" disabled="disabled">@ViewBag.AreaTweet</textarea>
+                                    <div> <button class="btnTweetA">Tweet</button></div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card-footer small text-muted">Data as of @ViewBag.DATETIMENOW</div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="pills-accepted" role="tabpanel" aria-labelledby="pills-contact-tab">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-area mr-1"></i>
+                    Accepted Concerns
+                </div>
+
+                <div class="card-body">
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <i class="fas fa-arrow-right mr-1"></i>
+                                    Post a Tweet!
+                                </div>
+
+                                <div class="card-body">
+                                    <textarea class="tweet-input tbTweetPost" rows="7" name="message"></textarea>
+                                    <div> <button class="btnTweetP">Tweet</button></div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div class="card-footer small text-muted">Data as of @ViewBag.DATETIMENOW</div>
+            </div>
+        </div>
+
+
     </div>
-    <div class="card-footer small text-muted">Data as of @ViewBag.DATETIMENOW</div>
-
-
 
 
 
@@ -225,13 +272,7 @@
 
 
 </body>
-@*
-    <input class="file" id="file" type="file" accepts="image/*" />
-        <label for="file"></label><br />
-     <input type="file" id="file-id" name="file_name" onchange="theimage();">
-    <input type="text" name="file_path" id="file-path">
-        <img id="preview" width="100" height="150" />
-*@
+
 </html>
 
 

@@ -143,7 +143,7 @@ namespace MVCCapstoneBGS
         public string Water_25_Reports { get; set; }
         public string Water_30_Reports { get; set; }
         public string Water_50_Reports { get; set; }
-        public string Overall_100_Reports { get; set; }
+        public string Over_100_Reports { get; set; }
     }
 
 }

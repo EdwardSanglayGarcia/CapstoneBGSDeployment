@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap Login &amp; Register Templates</title>
+    <title>TerraTech Login</title>
 
     <!-- CSS -->
 
@@ -27,12 +27,6 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <!-- Favicon and touch icons -->
-    <link rel="shortcut icon" href="~/TerraAssets/ico/favicon.png">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/TerraAssets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/TerraAssets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/TerraAssets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="~/TerraAssets/ico/apple-touch-icon-57-precomposed.png">
 
 </head>
 
@@ -53,7 +47,7 @@
                         <div class="form-box">
                             <div class="form-top">
 
-                                <a href="/Home/Index"><img src="../TerraMaster/images/logo.png"  alt="" /></a>
+                                <a href="/Home/Index"><img src="../TerraMaster/images/logo.png" alt="" /></a>
                                 <div class="form-top-left">
                                     <h3>Login</h3>
                                     <p>Enter username and password to log on:</p>
@@ -138,6 +132,8 @@
                                         <input type="email" name="Email" placeholder="Email..." class="form-email form-control" id="form-email">
                                     </div>
 
+
+
                                     <button type="submit" value="Submit" class="btn">Sign me up!</button>
 
                                 }
@@ -159,11 +155,83 @@
     <script src="~/TerraAssets/bootstrap/js/bootstrap.min.js"></script>
     <script src="~/TerraAssets/js/jquery.backstretch.min.js"></script>
     <script src="~/TerraAssets/js/scripts.js"></script>
+    @*CHART JS AND SWEET ALERT*@
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
     <!--[if lt IE 10]>
         <script src="~/TerraAssets/js/placeholder.js"></script>
     <![endif]-->
+    @*MODAL SECTION UPDATE START*@
+    <div class="modal fade" id="myModalUpdate" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content" id="modalwindow">
+                <div class="modal-header">
+                    <h3 class="modal-title Title">User Agreement and Privacy Policy</h3>
+                </div>
+                <div class="modal-body">
+                    
+                    <p style="text-align:left">
+                        <b>Privacy Policy</b><br />
+                        TerraTech honors confidentiality. TerraTech provides mapping, navigation by GPS, and community-based services. You trust us with your details when you use our services. We understand this is a major responsibility and are working hard to protect and monitor your information. <br />
+                        <br />
+                        This Privacy Policy is intended to help you understand what we collect information, why we collect it, and how you can update, track, and delete information. This Privacy Policy applies to: <br />
+                        •	Information that is being collected<br />
+                        •	User accounts & accessing the services<br />
+                        •	Why TerraTech collects data<br />
+                        •	Sharing your information<br />
+                        •	Controlling your personal information<br />
+                        •	How Terratech retains data we collect<br />
+                        •	Visibility<br />
+                        •	Information Security<br />
+                        <br />
+                        The word "personal information" in this Privacy Policy means information you send to us that uniquely identifies you, such as your name, email address or billing information, and, in some cases, your location or other details that TerraTech may reasonably associate with such Information that is being collected<br />
+
+                        <br />
+                        <b>Information that is being collected</b><br />
+                        TerraTech gathers knowledge to provide better services to all of its customers. TerraTech gathers information and how that information is being used depends on how you choose to use our services and how you handle the privacy controls.<br />
+                        <br />
+                        <b>Information you create or provide:</b><br />
+                        •	Account information: information necessary to set up a username you have chosen, such as your name or information needed to build or disclose new environmental issues. Keep in mind that unreliable, inaccurate, or obsolete information can impair the ability of TerraTech to provide the Services to you and to contact you when appropriate. TerraTech must state the necessary completion fields directly. You might not be able to set up a username or be provided with certain features, such as TerraTech Report Page, if you do not enter the correct data in those fields.<br />
+                        •	File Manager/Camera: information through photos you have chosen.<br />
+
+                        <br />
+                        <b>User accounts & accessing the services</b><br />
+                        According to this Privacy Policy, TerraTech will collect and use your information after establishing an account, including meta-data (as mentioned below). This usage can involve linking your Account details. This is the case irrespective of whether or not you want to create a username and password for TerraTech in the TerraTech program (as explained below).<br />
+                        •	TerraTech will connect all of your account details and that username. It involves details obtained from all mobile devices running the program that you have chosen to use your username and password to sign up for.<br />
+                        •	TerraTech can also, from time to time, create and require additional or specific means of identification and authentication to log in and access the Services, or to access certain features or specified parts of the Services.<br />
+                        •	Your login details are up to you. As a result of conveying your login information to someone else, you are entirely responsible for the use or abuse of your Account and personal data. You must preserve total confidentiality on your login information and prevent revealing them to anyone. Make sure you always update your password, preferably at least once every six months.<br />
+
+
+                    </p>
+                </div>
+
+                <div class="modal-footer">
+                    <p>Powered by TerraTechPH</p>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" title="Close">Close</button>
+                </div>
+            </div>
+            <!-- Modal content-->
+        </div>
+    </div>
 
 </body>
 
 </html>
+
+
+<script>
+
+    $(document).ready(function () {
+
+        $('#myModalUpdate').modal('show');
+    });
+
+
+    $(document).on("click", ".btnUpdate", function () {
+        $('#myModalUpdate').modal('show');
+    });
+
+</script>

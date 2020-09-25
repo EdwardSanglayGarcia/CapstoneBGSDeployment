@@ -790,7 +790,7 @@
                         bLengthChange: false,
                         destroy: true,
                         responsive: true,
-                        order: [[1, 'desc']],
+                        order: [[2, 'desc']],
                         ajax: {
                             type: "GET",
                             "url": "/DataGet/GetLeaderboard_Year?UpdatedStatusID=5&Year=2020",
@@ -799,12 +799,10 @@
                                 for (var b = 0; b <= json.length - 1; b++) {
                                     var c = json[b];
                                     a.push({
-                                        'UserInformationID': c.UserInformationID,
+
                                         'Username': c.Username,
+                                        'MainPoints': c.Points + " Points (Land: " + c.LandPoints + " | Water: " + c.WaterPoints + ")",
                                         'Points': c.Points,
-                                        'LandPoints': c.LandPoints,
-                                        'WaterPoints': c.WaterPoints,
-                                        'MainPoints': c.Points + " (Land: " + c.LandPoints + " | Water: " + c.WaterPoints+")",
                                     });
                                 }
                                 return a;
@@ -818,8 +816,15 @@
                             },
                             {
                                 title: "Overall Points",
-                                data: "MainPoints",
+                                data: "MainPoints" ,
                                 orderable: false,
+                                visible: true,
+                            },
+                            {
+                                title: "Overall Points",
+                                data: "Points",
+                                orderable: false,
+                                visible: false,
                             },
 
 

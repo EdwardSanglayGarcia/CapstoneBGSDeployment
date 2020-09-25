@@ -78,8 +78,8 @@ namespace MVCCapstoneBGS.Controllers
                 Select(
                 mmm => "["
                 + quote
-                //   + "<center><img src='https://i.ytimg.com/vi/EXtNpsj1-0w/hqdefault.jpg' style='width:150px; height:100px;'></center>"
-                + "Case No: " + mmm.CaseReportID
+               + "<center><img src='data:image/gif;base64," + mmm.Base64Photo + "' style='width:150px; height:100px;'></center>"
+                  + "Case No: " + mmm.CaseReportID
                 + "<br />Reported on: " + mmm.DateReported
                 + "<br />Updated on: " + mmm.UpdatedStatusDate
                 + "<br />Type: " + mmm.Concern
@@ -458,7 +458,7 @@ namespace MVCCapstoneBGS.Controllers
                 Select(
                 mmm => "["
                 +quote
-             //   + "<center><img src='https://i.ytimg.com/vi/EXtNpsj1-0w/hqdefault.jpg' style='width:150px; height:100px;'></center>"
+                + "<center><img src='data:image/gif;base64," + mmm.Base64Photo+"' style='width:150px; height:100px;'></center>"
                 +"Case No: "+mmm.CaseReportID
                 +"<br />Reported on: "+mmm.DateReported
                 +"<br />Updated on: "+mmm.UpdatedStatusDate
@@ -492,10 +492,9 @@ namespace MVCCapstoneBGS.Controllers
             ViewBag.VBLayout = Layout_CU;
             ViewBag.DATETIMENOW = DateTime.Now.Date.ToLongDateString() + " - " + DateTime.Now.TimeOfDay;
             ViewBag.Title = LabelStruct.CommunityUser.SubmitReport;
+       //     TempData["message"] = "<script>Swal.fire({ : 'success', title: 'Your work has been saved', showConfirmButton: false, timer: 1500})</script>";
             return View();
         }
-
-
         public ActionResult ViewStatus()
         {
             ViewBag.VBLayout = Layout_CU;
@@ -528,23 +527,15 @@ namespace MVCCapstoneBGS.Controllers
             ViewBag.WaterLover = Badges.Select(x => x.Water_30_Reports).FirstOrDefault().ToString();
             ViewBag.CaptainSaverOfWater = Badges.Select(x => x.Water_50_Reports).FirstOrDefault().ToString();
 
-
+            ViewBag.UnknownHelper = Badges.Select(x => x.Area_1_Report).FirstOrDefault().ToString();
+            ViewBag.MakingChanges = Badges.Select(x => x.Area_2_Report).FirstOrDefault().ToString();
+            ViewBag.AllyOfEnvironment = Badges.Select(x => x.Area_3_Report).FirstOrDefault().ToString();
+            ViewBag.FriendlyNature = Badges.Select(x => x.Area_4_Report).FirstOrDefault().ToString();
+            ViewBag.TrueSupporter = Badges.Select(x => x.Area_5_Report).FirstOrDefault().ToString();
+            ViewBag.TheOne = Badges.Select(x => x.Over_100_Reports).FirstOrDefault().ToString();
 
 
             var landy1 = Badges.Select(x => x.Water_10_Reports).FirstOrDefault().ToString();
-
-            if (landy1 == "false")
-            {
-                ViewBag.LandTest = "filter: grayscale(100%);";
-            }
-
-            else
-            {
-                ViewBag.LandTest = string.Empty;
-            }
-
-
-
 
             _IDataProvider.GetLeaderboards_Year(5, DateTime.Now.Year);
             ViewBag.Title = LabelStruct.CommunityUser.Achievements;

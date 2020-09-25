@@ -9,7 +9,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>SubmitReport</title>
+    <title>@LabelStruct.CommunityUser.SubmitReport</title>
 </head>
 
 <body>
@@ -20,10 +20,9 @@
 
     <div class="card mb-4">
         <div class="card-body">
-            Recent and Current Records of Community Users
+            @LabelStruct.CommunityUser_Message.M_SubmitReport
         </div>
     </div>
-
 
 
     @using (Html.BeginForm("SubmitReport", "Entities", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -54,12 +53,11 @@
                             <option value="1">Land Concerns</option>
                             <option value="2">Water Concerns</option>
                         </select>
-                        @*<div class="md-form mb-3">
-                                <div class="form-group">
-                                    <label for="FormControlTextarea1">Additional Concerns</label>
-                                    <textarea class="form-control rounded-0" id="add-cnrns" rows="5"></textarea>
-                                </div>
-                            </div>*@
+                        <div class="md-form mb-3">
+                            <div class="form-group">
+                                <textarea class="form-control rounded-0" id="add-cnrns" rows="3" placeholder="Provide a description (optional)" name="Notes"></textarea>
+                            </div>
+                        </div>
                     </div>
 
                     <input type="hidden" name="UserInformationID" id="UserInformationID">
@@ -79,7 +77,7 @@
     }
 
     @*<input type="button" class="btn btn-primary btnInProgress" id="btnInProgress" >*@
-   
+
     @*<p id="DisplayInformation"></p>*@
 </body>
 </html>
@@ -194,7 +192,7 @@
             } else {
                 if (log) alert(log);
             }
-
+     
         });
         function readURL(input) {
             if (input.files && input.files[0]) {

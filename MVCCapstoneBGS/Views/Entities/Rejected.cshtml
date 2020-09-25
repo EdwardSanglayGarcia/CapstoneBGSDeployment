@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <title>@LabelStruct.Administrator.Rejected</title>
 </head>
 <body>
     <ol class="breadcrumb mb-4">
@@ -20,8 +20,8 @@
 
     <div class="card mb-4">
         <div class="card-body">
-            Let other people know about the status of reports! at
-            <a target="_blank" href="https://www.Twitter.com/TerraTechPH/" style="font-style:italic">&#64;TerraTechPH</a>
+            @LabelStruct.Administrator_Message.M_Rejected
+            
         </div>
     </div>
 
@@ -73,7 +73,7 @@
 
                         <div class="col-md-7">
                             <div class="row-1" style="border:double; margin-bottom:10px; height:250px;">
-                                <img src="https://i.ytimg.com/vi/1jPeMx0mJeU/hqdefault.jpg" id="imageID" style="width:100%; height:250px" />
+                                <img src="https://i.ytimg.com/vi/1jPeMx0mJeU/hqdefault.jpg" id="imageID" style="width:100%; height:240px" />
 
                             </div>
 
@@ -108,10 +108,7 @@
                                 <textarea class="form-control tbNotes" id="tbNotes" rows="3"></textarea>
                                 <label data-error="wrong" data-success="right" for="orangeForm-name">Reported by</label>
                             </div>
-
-
                         </div>
-
 
                     </div>
 
@@ -127,7 +124,6 @@
             <!-- Modal content-->
         </div>
     </div>
-    @*MODAL SECTION UPDATE END*@
 
 </body>
 </html>
@@ -222,8 +218,8 @@
                     data: "CaseLocation"
                 },
                 {
-                    title: "Coordinates",
-                    data: "Coordinates"
+                    title: "Concern",
+                    data: "Concern"
                 },
 
             ],

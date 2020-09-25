@@ -125,7 +125,7 @@ namespace MVCCapstoneBGS.Controllers
 
         public ActionResult GetLeaderboard_Year(int UpdatedStatusID, int Year)
         {
-            var data = _IDataProvider.GetLeaderboards_Year(UpdatedStatusID, Year);
+            var data = _IDataProvider.GetLeaderboards_Year(UpdatedStatusID, Year).OrderByDescending(x=>x.Points);
             JsonResult json = Json(data, JsonRequestBehavior.AllowGet);
             json.MaxJsonLength = int.MaxValue;
             return json;

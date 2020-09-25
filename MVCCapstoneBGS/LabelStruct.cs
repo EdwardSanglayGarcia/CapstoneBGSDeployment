@@ -30,24 +30,24 @@ namespace MVCCapstoneBGS
         //LIST OF MESSAGES
         public struct Administrator_Message
         {
-            public const string M_AdministratorHomepage = "";
-            public const string M_Submitted = "Submitted";
-            public const string M_Accepted = "Accepted";
-            public const string M_InProgress = "In Progress";
-            public const string M_Completed = "Completed";
-            public const string M_Rejected = "Rejected";
-            public const string M_MonthlyReports = "Monthly Reports";
-            public const string M_YearlyReports = "Yearly Reports";
-            public const string M_Twitter = "Twitter";
-            public const string M_Volunteers = "Volunteers";
+            public const string M_AdministratorHomepage = "Recent Records of Reported Concerns";
+            public const string M_Submitted = "Manage Submitted Reports";
+            public const string M_Accepted = "Manage Accepted Reports";
+            public const string M_InProgress = "Manage In Progress Reports";
+            public const string M_Completed = "Manage Completed Reports";
+            public const string M_Rejected = "Manage Rejected Reports";
+            public const string M_MonthlyReports = "Generate Monthly Reports of Concerns";
+            public const string M_YearlyReports = "Generate Yearly Reports of Concerns";
+            public const string M_Twitter = "Let other people know about the status of ";
+            public const string M_Volunteers = "Manage volunteers who would complete the reports!";
         }
 
         public struct CommunityUser_Message
         {
-            public const string M_CommunityUserHomepage = "Community User";
-            public const string M_SubmitReport = "Submit Report";
-            public const string M_ViewStatus = "View Status";
-            public const string M_Achievements = "Achievements";
+            public const string M_CommunityUserHomepage = "Community User Homepage";
+            public const string M_SubmitReport = "Submit an Environmental Concern!";
+            public const string M_ViewStatus = "View my Reported Concerns and their status!";
+          //  public const string M_Achievements = "Achievements";
         }
 
         //LIST OF TITLE TAGS
