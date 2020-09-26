@@ -51,6 +51,7 @@ namespace MVCCapstoneBGS
         public string Handler_FamilyName { get; set; }
         public string Notes { get; set; }
 
+        public int Hits { get; set; }
         public string Base64Photo { get; set; }
     }
 
@@ -66,6 +67,12 @@ namespace MVCCapstoneBGS
         public string Email { get; set; }
         public string Notes { get; set; }
     }
+
+    public class PriorityDictionary
+    {
+        public string[] myString = { "Chemical", "Nuclear", "Sewage", "Irrigation", "Mining", "text5", "Technology Concern" };
+    }
+
 
     public class Volunteer
     {

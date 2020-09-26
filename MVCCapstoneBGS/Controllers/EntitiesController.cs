@@ -509,35 +509,72 @@ namespace MVCCapstoneBGS.Controllers
             ViewBag.DATETIMENOW = DateTime.Now.Date.ToLongDateString() + " - " + DateTime.Now.TimeOfDay;
             int PASS_UserInformationID = Convert.ToInt32(Session["UserInformationID"]);
 
-            var Badges = _IDataProvider.GetLeaderboards_Year(5, DateTime.Now.Year).Where(x => x.UserInformationID == PASS_UserInformationID);
+            if (PASS_UserInformationID != 0)
+            {
+                var Badges = _IDataProvider.GetLeaderboards_Year(5, DateTime.Now.Year).Where(x => x.UserInformationID == PASS_UserInformationID);
+                if (Badges.Select(x => x.Land_5_Reports).FirstOrDefault() != null)
+                {
 
-            ViewBag.EarthBender = Badges.Select(x => x.Land_5_Reports).FirstOrDefault().ToString();
-            ViewBag.BuddyOfLand = Badges.Select(x => x.Land_10_Reports).FirstOrDefault().ToString();
-            ViewBag.TheValueOfLand = Badges.Select(x => x.Land_15_Reports).FirstOrDefault().ToString();
-            ViewBag.LandExpert = Badges.Select(x => x.Land_20_Reports).FirstOrDefault().ToString();
-            ViewBag.TrueHeroInLand= Badges.Select(x => x.Land_25_Reports).FirstOrDefault().ToString();
-            ViewBag.LandLover = Badges.Select(x => x.Land_30_Reports).FirstOrDefault().ToString();
-            ViewBag.CaptainSaverOfLand = Badges.Select(x => x.Land_50_Reports).FirstOrDefault().ToString();
+                    ViewBag.Helper = Badges.Select(x => x.Area_1_Report).FirstOrDefault();
+                    ViewBag.EarthBender = Badges.Select(x => x.Land_5_Reports).FirstOrDefault();
+                    ViewBag.BuddyOfLand = Badges.Select(x => x.Land_10_Reports).FirstOrDefault();
+                    ViewBag.TheValueOfLand = Badges.Select(x => x.Land_15_Reports).FirstOrDefault();
+                    ViewBag.LandExpert = Badges.Select(x => x.Land_20_Reports).FirstOrDefault();
+                    ViewBag.TrueHeroInLand = Badges.Select(x => x.Land_25_Reports).FirstOrDefault();
+                    ViewBag.LandLover = Badges.Select(x => x.Land_30_Reports).FirstOrDefault();
+                    ViewBag.CaptainSaverOfLand = Badges.Select(x => x.Land_50_Reports).FirstOrDefault();
 
-            ViewBag.WaterBender = Badges.Select(x => x.Water_5_Reports).FirstOrDefault().ToString();
-            ViewBag.BuddyOfWater = Badges.Select(x => x.Water_10_Reports).FirstOrDefault().ToString();
-            ViewBag.TheValueOfWater = Badges.Select(x => x.Water_15_Reports).FirstOrDefault().ToString();
-            ViewBag.WaterExpert = Badges.Select(x => x.Water_20_Reports).FirstOrDefault().ToString();
-            ViewBag.TrueHeroInWater = Badges.Select(x => x.Water_25_Reports).FirstOrDefault().ToString();
-            ViewBag.WaterLover = Badges.Select(x => x.Water_30_Reports).FirstOrDefault().ToString();
-            ViewBag.CaptainSaverOfWater = Badges.Select(x => x.Water_50_Reports).FirstOrDefault().ToString();
+                    ViewBag.WaterBender = Badges.Select(x => x.Water_5_Reports).FirstOrDefault();
+                    ViewBag.BuddyOfWater = Badges.Select(x => x.Water_10_Reports).FirstOrDefault();
+                    ViewBag.TheValueOfWater = Badges.Select(x => x.Water_15_Reports).FirstOrDefault();
+                    ViewBag.WaterExpert = Badges.Select(x => x.Water_20_Reports).FirstOrDefault();
+                    ViewBag.TrueHeroInWater = Badges.Select(x => x.Water_25_Reports).FirstOrDefault();
+                    ViewBag.WaterLover = Badges.Select(x => x.Water_30_Reports).FirstOrDefault();
+                    ViewBag.CaptainSaverOfWater = Badges.Select(x => x.Water_50_Reports).FirstOrDefault();
 
-            ViewBag.UnknownHelper = Badges.Select(x => x.Area_1_Report).FirstOrDefault().ToString();
-            ViewBag.MakingChanges = Badges.Select(x => x.Area_2_Report).FirstOrDefault().ToString();
-            ViewBag.AllyOfEnvironment = Badges.Select(x => x.Area_3_Report).FirstOrDefault().ToString();
-            ViewBag.FriendlyNature = Badges.Select(x => x.Area_4_Report).FirstOrDefault().ToString();
-            ViewBag.TrueSupporter = Badges.Select(x => x.Area_5_Report).FirstOrDefault().ToString();
-            ViewBag.TheOne = Badges.Select(x => x.Over_100_Reports).FirstOrDefault().ToString();
+                    ViewBag.UnknownHelper = Badges.Select(x => x.Area_1_Report).FirstOrDefault();
+                    ViewBag.MakingChanges = Badges.Select(x => x.Area_2_Report).FirstOrDefault();
+                    ViewBag.AllyOfEnvironment = Badges.Select(x => x.Area_3_Report).FirstOrDefault();
+                    ViewBag.FriendlyNature = Badges.Select(x => x.Area_4_Report).FirstOrDefault();
+                    ViewBag.TrueSupporter = Badges.Select(x => x.Area_5_Report).FirstOrDefault();
+                    ViewBag.TheOne = Badges.Select(x => x.Over_100_Reports).FirstOrDefault();
+                }
 
+                else
+                {
+                    ViewBag.Helper = "filter: grayscale(100%);";
+                    ViewBag.EarthBender = "filter: grayscale(100%);";
+                    ViewBag.BuddyOfLand = "filter: grayscale(100%);";
+                    ViewBag.TheValueOfLand = "filter: grayscale(100%);";
+                    ViewBag.LandExpert = "filter: grayscale(100%);";
+                    ViewBag.TrueHeroInLand = "filter: grayscale(100%);";
+                    ViewBag.LandLover = "filter: grayscale(100%);";
+                    ViewBag.CaptainSaverOfLand = "filter: grayscale(100%);";
 
-            var landy1 = Badges.Select(x => x.Water_10_Reports).FirstOrDefault().ToString();
+                    ViewBag.WaterBender = "filter: grayscale(100%);";
+                    ViewBag.BuddyOfWater = "filter: grayscale(100%);";
+                    ViewBag.TheValueOfWater = "filter: grayscale(100%);";
+                    ViewBag.WaterExpert = "filter: grayscale(100%);";
+                    ViewBag.TrueHeroInWater = "filter: grayscale(100%);";
+                    ViewBag.WaterLover = "filter: grayscale(100%);";
+                    ViewBag.CaptainSaverOfWater = "filter: grayscale(100%);";
 
-            _IDataProvider.GetLeaderboards_Year(5, DateTime.Now.Year);
+                    ViewBag.UnknownHelper = "filter: grayscale(100%);";
+                    ViewBag.MakingChanges = "filter: grayscale(100%);";
+                    ViewBag.AllyOfEnvironment = "filter: grayscale(100%);";
+                    ViewBag.FriendlyNature = "filter: grayscale(100%);";
+                    ViewBag.TrueSupporter = "filter: grayscale(100%);";
+                    ViewBag.TheOne = "filter: grayscale(100%);";
+                }
+            }
+
+            else
+            {
+                
+            }
+
+           
+
             ViewBag.Title = LabelStruct.CommunityUser.Achievements;
             return View();
         }

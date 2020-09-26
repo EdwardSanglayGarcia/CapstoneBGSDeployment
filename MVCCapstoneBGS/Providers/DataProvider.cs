@@ -220,6 +220,20 @@ namespace MVCCapstoneBGS
             var result = new List<CaseReport>();
             using (IDbConnection con = new SqlConnection(constring))
             {
+
+                PriorityDictionary M = new PriorityDictionary();
+                M.myString = M.myString.Select(x => x.ToUpper()).ToArray();
+
+                int hits = 0;
+                foreach (string x in M.myString)
+                {
+                    if (UI.Notes.ToUpper().Contains(x))
+                    {
+                        Console.Write(x + " ");
+                        hits++;
+                    }
+                }
+
                 if (image1 != null)
                 {
                     UI.CaseReportPhoto = new byte[image1.ContentLength];
@@ -235,6 +249,7 @@ namespace MVCCapstoneBGS
                 param.Add("@CaseLocation", UI.CaseLocation);
                 param.Add("@CaseReportPhoto", UI.CaseReportPhoto);
                 param.Add("@Notes",UI.Notes);
+                param.Add("@Hits",hits);
 
                 result = con.Query<CaseReport>(
                     StoredProcedureEnum.I_CaseReport.ToString(), param, commandType: CommandType.StoredProcedure).ToList();

@@ -62,6 +62,7 @@ namespace MVCCapstoneBGS.Controllers
 
         public ActionResult GetCaseReport(int UpdatedStatusID)
         {
+
             var data = _IDataProvider.GetCaseReport(UpdatedStatusID);
             JsonResult json = Json(data, JsonRequestBehavior.AllowGet);
             json.MaxJsonLength = int.MaxValue;
