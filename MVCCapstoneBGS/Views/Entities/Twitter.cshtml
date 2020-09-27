@@ -438,7 +438,7 @@
         var message = $(".tbTweetReport").val();
         $.ajax({
             type: 'POST',
-            url: '@Url.Action("TweetSomething", "DataGenerate")',
+            url: '@Url.Action("TweetUpdatedStatus", "DataGenerate")',
             dataType: 'html',
             data: ({
                 //insert your parameters to pass to controller
@@ -462,7 +462,7 @@
         var message = $(".tbTweetArea").val();
         $.ajax({
             type: 'POST',
-            url: '@Url.Action("TweetSomething", "DataGenerate")',
+            url: '@Url.Action("TweetArea", "DataGenerate")',
             dataType: 'html',
             data: ({
                 message: message
@@ -474,8 +474,6 @@
                     text: 'View your tweet at TerraTechPH!',
                     footer: '<a>Powered by TerraTech</a>'
                 })
-
-
             }
         });
 
@@ -577,11 +575,3 @@
 
 </script>
 
-
-
-
-    @*//$("input[type=file]").on("change", function () {
-    //    $("[for=file]").html(this.files[0].name);
-    //    $("#preview").attr("src", URL.createObjectURL(this.files[0]));
-    //    ABC();
-    //});*@

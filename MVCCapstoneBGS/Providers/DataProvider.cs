@@ -223,7 +223,10 @@ namespace MVCCapstoneBGS
 
                 PriorityDictionary M = new PriorityDictionary();
                 M.myString = M.myString.Select(x => x.ToUpper()).ToArray();
-
+                if (UI.Notes == null)
+                {
+                    UI.Notes = "No description provided";
+                }
                 int hits = 0;
                 foreach (string x in M.myString)
                 {

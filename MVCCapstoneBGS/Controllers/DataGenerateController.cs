@@ -50,8 +50,29 @@ namespace MVCCapstoneBGS.Controllers
 
         public void TweetSomething(string message)
         {
-            string image;
-            image = @"C:\Users\pc\Desktop\Capstone Codes\Final Web Application\MVCCapstoneBGS\TerraMaster\upload\shutterstock_124871620.jpg";
+            string image = @"C:\Users\pc\Desktop\Photo\Status.png";
+
+            var imahe = _IDataProvider.GetCaseReport(1).Select(x => x.Base64Photo).FirstOrDefault();
+
+            DefaultData cmd = new DefaultData();
+
+            var service = new TwitterService(cmd.CONSUMER_KEY, cmd.CONSUMER_SECRET);
+            service.AuthenticateWith(cmd.ACCESS_TOKEN, cmd.ACCESS_TOKEN_SECRET);
+
+            using (var stream = new FileStream(image, FileMode.Open))
+            {
+                service.SendTweetWithMedia(new SendTweetWithMediaOptions
+                {
+                    Status = message + " #TerraTechPH",
+                    Images = new Dictionary<string, Stream> { { image, stream } }
+                });
+            }
+        }
+
+        public void TweetArea(string message)
+        {
+ 
+            string image = @"C:\Users\pc\Desktop\Photo\Area Report.png";
 
             var imahe = _IDataProvider.GetCaseReport(1).Select(x => x.Base64Photo).FirstOrDefault();
 
@@ -72,9 +93,9 @@ namespace MVCCapstoneBGS.Controllers
 
         public void TweetCompleted(int CaseReportID, string Location, string Concern, string DateReported, string DateCompleted)
         {
-            string image;
-            image = @"C:\Users\pc\Desktop\Capstone Codes\Final Web Application\MVCCapstoneBGS\TerraMaster\upload\shutterstock_124871620.jpg";
-
+            //string image;
+            //image = @"C:\Users\pc\Desktop\Capstone Codes\Final Web Application\MVCCapstoneBGS\TerraMaster\upload\shutterstock_124871620.jpg";
+            string image = @"C:\Users\pc\Desktop\Photo\Status Report.png";
             DefaultData cmd = new DefaultData();
 
             var service = new TwitterService(cmd.CONSUMER_KEY, cmd.CONSUMER_SECRET);
@@ -92,6 +113,28 @@ namespace MVCCapstoneBGS.Controllers
                 });
             }
         }
+
+        public void TweetUpdatedStatus(string message)
+        {
+            string image = @"C:\Users\pc\Desktop\Photo\Status.png";
+
+            var imahe = _IDataProvider.GetCaseReport(1).Select(x => x.Base64Photo).FirstOrDefault();
+
+            DefaultData cmd = new DefaultData();
+
+            var service = new TwitterService(cmd.CONSUMER_KEY, cmd.CONSUMER_SECRET);
+            service.AuthenticateWith(cmd.ACCESS_TOKEN, cmd.ACCESS_TOKEN_SECRET);
+
+            using (var stream = new FileStream(image, FileMode.Open))
+            {
+                service.SendTweetWithMedia(new SendTweetWithMediaOptions
+                {
+                    Status = message + " #TerraTechPH",
+                    Images = new Dictionary<string, Stream> { { image, stream } }
+                });
+            }
+        }
+
 
         public ActionResult GenerateYearReport(int year)
         {
