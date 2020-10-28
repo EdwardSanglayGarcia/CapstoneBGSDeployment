@@ -317,7 +317,7 @@
                             'YCoordinates': c.YCoordinates,
                             'Coordinates': "(" + c.XCoordinates + "," + c.YCoordinates + ")",
                             'Notes': c.Notes,
-                            'Base64Photo': c.Base64Photo
+                           
                         });
                     }
                     return a;
@@ -513,7 +513,27 @@
         }
         map.setMaxBounds(maxBounds);
 
-        var imgsrc = 'data:image/gif;base64,' + data["Base64Photo"];
+        var imgsrc;
+
+        $.ajax({
+            type: "GET",
+            "url": "/DataGet/GetCaseReportPhoto",
+            dataType: "json",
+            async: false,
+            data: {
+                CaseReportID: PARAM_CaseReportID,
+            },
+            success: function (result) {
+
+                var jsonStringify = JSON.stringify(result);
+                var jsonObj = JSON.parse(jsonStringify);
+                //alert(jsonStringify);
+                //alert(jsonObj[0]['Base64Photo']);
+                imgsrc = 'data:image/gif;base64,' + jsonObj[0]['Base64Photo'];
+            }
+
+        }
+        );
 
         document.getElementById('imageID').src = imgsrc;
 
@@ -530,7 +550,6 @@
         CURRENT_DateReported = ConvertToDate(data["DateReported"]);
         CURRENT_DateUpdated = ConvertToDate(data["UpdatedStatusDate"]);
     });
-
 
     $(document).on("click", ".btnTweetCompleted", function () {
 

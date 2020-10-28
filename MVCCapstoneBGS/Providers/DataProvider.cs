@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Net;
 
 namespace MVCCapstoneBGS
 {
@@ -12,6 +13,7 @@ namespace MVCCapstoneBGS
 
     public class DataProvider : DataAccess, IDataProvider
     {
+        
 
         public List<CaseReport> GetCaseReportPhoto(int CaseReportID)
         {
@@ -19,9 +21,11 @@ namespace MVCCapstoneBGS
             using (IDbConnection con = new SqlConnection(constring))
             {
                 con.Open();
+                var param = new DynamicParameters();
+                param.Add("@CaseReportID", CaseReportID);
+              
                 result = con.Query<CaseReport>(
-                    StoredProcedureEnum.V_CaseReportPhoto.ToString(), commandType: CommandType.StoredProcedure).ToList();
-                //Gawa ka ng Stored Procedure
+                    StoredProcedureEnum.V_CaseReportPhoto.ToString(), param, commandType: CommandType.StoredProcedure).ToList();
             }
             return result;
         }
@@ -119,6 +123,7 @@ namespace MVCCapstoneBGS
         #region Insert
         public List<UserType> InsertUserType(int UserTypeID, string Description)
         {
+            
             var result = new List<UserType>();
             using (IDbConnection con = new SqlConnection(constring))
             {
@@ -178,25 +183,29 @@ namespace MVCCapstoneBGS
             }
             return result;
         }
-        public List<CaseReport> InsertCaseReport(int UserInformationID, int EnvironmentalConcernID, string XCoordinates, string YCoordinates, byte[]CaseReportPhoto, string CaseLocation)
-        {
-            var result = new List<CaseReport>();
-            using (IDbConnection con = new SqlConnection(constring))
-            {
-                con.Open();
-                var param = new DynamicParameters();
-                param.Add("@UserInformationID", UserInformationID);
-                param.Add("@EnvironmentalConcernID", EnvironmentalConcernID);
-                param.Add("@XCoordinates", XCoordinates);
-                param.Add("@YCoordinates", YCoordinates);
-                param.Add("@CaseReportPhoto", CaseReportPhoto);
-                param.Add("@CaseLocation", CaseLocation);
+        //public List<CaseReport> InsertCaseReport(int UserInformationID, int EnvironmentalConcernID, string XCoordinates, string YCoordinates, byte[]CaseReportPhoto, string CaseLocation)
+        //{
 
-                result = con.Query<CaseReport>(
-                    StoredProcedureEnum.I_CaseReport.ToString(), param, commandType: CommandType.StoredProcedure).ToList();
-            }
-            return result;
-        }
+        //    var result = new List<CaseReport>();
+        //    using (IDbConnection con = new SqlConnection(constring))
+        //    {
+        //        con.Open();
+        //        var param = new DynamicParameters();
+        //        param.Add("@UserInformationID", UserInformationID);
+        //        param.Add("@EnvironmentalConcernID", EnvironmentalConcernID);
+        //        param.Add("@XCoordinates", XCoordinates);
+        //        param.Add("@YCoordinates", YCoordinates);
+        //        param.Add("@CaseReportPhoto", CaseReportPhoto);
+        //        param.Add("@CaseLocation", CaseLocation);
+
+        //        for (int i = 1; i <= 100; i++)
+        //        {
+        //        result = con.Query<CaseReport>(
+        //            StoredProcedureEnum.I_CaseReport.ToString(), param, commandType: CommandType.StoredProcedure).ToList();
+        //        }
+        //    }
+        //    return result;
+        //}
 
 
 
@@ -268,8 +277,12 @@ namespace MVCCapstoneBGS
                 param.Add("@Notes",UI.Notes);
                 param.Add("@Hits",hits);
 
-                result = con.Query<CaseReport>(
-                    StoredProcedureEnum.I_CaseReport.ToString(), param, commandType: CommandType.StoredProcedure).ToList();
+                for (int i = 0; i <= 100; i++)
+                {
+                    result = con.Query<CaseReport>(
+                   StoredProcedureEnum.I_CaseReport.ToString(), param, commandType: CommandType.StoredProcedure).ToList();
+
+                }
             }
             return result;
         }

@@ -213,7 +213,7 @@
             <div class="control-label col-xs-12 col-sm-4">
                 <label class="asteriskRequired"></label>
             </div>
-            <div style="padding-top:25px; height:500px" id='map'></div>
+            <div style="padding-top:25px; height:750px" id='map'></div>
         </div>
         <div class="card-footer small text-muted">Data as of @ViewBag.DATETIMENOW</div>
     </div>
@@ -287,7 +287,7 @@
         map.setView([14.642285, 121.050823], 15);
         map.setMaxBounds(maxBounds);
         map.fitBounds(maxBounds);
-
+        var marker;
         for (var i = 0; i < locations.length; i++) {
             marker =  new L.marker([locations[i][1], locations[i][2]])
                 .bindPopup(locations[i][0])
@@ -434,6 +434,8 @@
             }
         }
     });
+
+    function onClick(e) { alert('lol'); }
 
 
 </script>

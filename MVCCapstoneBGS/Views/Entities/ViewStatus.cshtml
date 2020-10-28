@@ -271,8 +271,8 @@
                             'Coordinates': "(" + c.XCoordinates + "," + c.YCoordinates + ")",
                             'DateUpdated': c.DateUpdated,
                             'Notes': c.Notes,
-                            'CaseReportPhoto': c.CaseReportPhoto,
-                            'Base64Photo': c.Base64Photo
+
+
                         });
                     }
                     return a;
@@ -373,8 +373,7 @@
                             'Coordinates': "(" + c.XCoordinates + "," + c.YCoordinates + ")",
                             'DateUpdated': c.DateUpdated,
                             'Notes': c.Notes,
-                            'CaseReportPhoto': c.CaseReportPhoto,
-                            'Base64Photo': c.Base64Photo
+                          
                         });
                     }
                     return a;
@@ -475,8 +474,7 @@
                             'Coordinates': "(" + c.XCoordinates + "," + c.YCoordinates + ")",
                             'DateUpdated': c.DateUpdated,
                             'Notes': c.Notes,
-                            'CaseReportPhoto': c.CaseReportPhoto,
-                            'Base64Photo': c.Base64Photo
+                         
                         });
                     }
                     return a;
@@ -577,8 +575,6 @@
                             'Coordinates': "(" + c.XCoordinates + "," + c.YCoordinates + ")",
                             'DateUpdated': c.DateUpdated,
                             'Notes': c.Notes,
-                            'CaseReportPhoto': c.CaseReportPhoto,
-                            'Base64Photo': c.Base64Photo,
                             'Handler_GivenName': c.Handler_GivenName,
                             'Handler_MaidenName': c.Handler_MaidenName,
                             'Handler_FamilyName': c.Handler_FamilyName,
@@ -683,8 +679,7 @@
                             'Coordinates': "(" + c.XCoordinates + "," + c.YCoordinates + ")",
                             'DateUpdated': c.DateUpdated,
                             'Notes': c.Notes,
-                            'CaseReportPhoto': c.CaseReportPhoto,
-                            'Base64Photo': c.Base64Photo
+                          
                         });
                     }
                     return a;
@@ -759,7 +754,6 @@
     };
 
 
-
     $(document).on("click", ".btnViewSubmitted", function () {
         $('#myModalUpdate').modal('show');
         document.getElementById("tbCaseReportNo").value = "";
@@ -796,7 +790,28 @@
             .bindPopup(locations[0][0])
             .addTo(map);
 
-        var imgsrc = 'data:image/gif;base64,' + data["Base64Photo"];
+        var imgsrc;
+
+        $.ajax({
+            type: "GET",
+            "url": "/DataGet/GetCaseReportPhoto",
+            dataType: "json",
+            async: false,
+            data: {
+                CaseReportID: data["CaseReportID"]
+            },
+            success: function (result) {
+
+                var jsonStringify = JSON.stringify(result);
+                var jsonObj = JSON.parse(jsonStringify);
+                //alert(jsonStringify);
+                //alert(jsonObj[0]['Base64Photo']);
+                imgsrc = 'data:image/gif;base64,' + jsonObj[0]['Base64Photo'];
+            }
+
+        }
+        );
+
         document.getElementById('imageID').src = imgsrc;
     });
 
@@ -836,7 +851,28 @@
             .bindPopup(locations[0][0])
             .addTo(map);
 
-        var imgsrc = 'data:image/gif;base64,' + data["Base64Photo"];
+        var imgsrc;
+
+        $.ajax({
+            type: "GET",
+            "url": "/DataGet/GetCaseReportPhoto",
+            dataType: "json",
+            async: false,
+            data: {
+                CaseReportID: data["CaseReportID"]
+            },
+            success: function (result) {
+
+                var jsonStringify = JSON.stringify(result);
+                var jsonObj = JSON.parse(jsonStringify);
+                //alert(jsonStringify);
+                //alert(jsonObj[0]['Base64Photo']);
+                imgsrc = 'data:image/gif;base64,' + jsonObj[0]['Base64Photo'];
+            }
+
+        }
+        );
+
         document.getElementById('imageID').src = imgsrc;
     });
 
@@ -876,7 +912,28 @@
             .bindPopup(locations[0][0])
             .addTo(map);
 
-        var imgsrc = 'data:image/gif;base64,' + data["Base64Photo"];
+        var imgsrc;
+
+        $.ajax({
+            type: "GET",
+            "url": "/DataGet/GetCaseReportPhoto",
+            dataType: "json",
+            async: false,
+            data: {
+                CaseReportID: data["CaseReportID"]
+            },
+            success: function (result) {
+
+                var jsonStringify = JSON.stringify(result);
+                var jsonObj = JSON.parse(jsonStringify);
+                //alert(jsonStringify);
+                //alert(jsonObj[0]['Base64Photo']);
+                imgsrc = 'data:image/gif;base64,' + jsonObj[0]['Base64Photo'];
+            }
+
+        }
+        );
+
         document.getElementById('imageID').src = imgsrc;
     });
 
@@ -915,8 +972,28 @@
         marker = new L.marker([locations[0][1], locations[0][2]])
             .bindPopup(locations[0][0])
             .addTo(map);
+        var imgsrc;
 
-        var imgsrc = 'data:image/gif;base64,' + data["Base64Photo"];
+        $.ajax({
+            type: "GET",
+            "url": "/DataGet/GetCaseReportPhoto",
+            dataType: "json",
+            async: false,
+            data: {
+                CaseReportID: data["CaseReportID"]
+            },
+            success: function (result) {
+
+                var jsonStringify = JSON.stringify(result);
+                var jsonObj = JSON.parse(jsonStringify);
+                //alert(jsonStringify);
+                //alert(jsonObj[0]['Base64Photo']);
+                imgsrc = 'data:image/gif;base64,' + jsonObj[0]['Base64Photo'];
+            }
+
+        }
+        );
+
         document.getElementById('imageID').src = imgsrc;
     });
 
@@ -956,7 +1033,29 @@
             .bindPopup(locations[0][0])
             .addTo(map);
 
-        var imgsrc = 'data:image/gif;base64,' + data["Base64Photo"];
+        var imgsrc;
+
+        $.ajax({
+            type: "GET",
+            "url": "/DataGet/GetCaseReportPhoto",
+            dataType: "json",
+            async: false,
+            data: {
+                CaseReportID: data["CaseReportID"]
+            },
+            success: function (result) {
+
+                var jsonStringify = JSON.stringify(result);
+                var jsonObj = JSON.parse(jsonStringify);
+                //alert(jsonStringify);
+                //alert(jsonObj[0]['Base64Photo']);
+                imgsrc = 'data:image/gif;base64,' + jsonObj[0]['Base64Photo'];
+            }
+
+        }
+        );
+
         document.getElementById('imageID').src = imgsrc;
     });
+
 </script>
