@@ -77,6 +77,8 @@ namespace MVCCapstoneBGS
 
         int GetAreaConcernDashboard(int Year);
 
+        List<CaseReport> GetCaseReportPhoto(int CaseReportID);
+
         int GetHomeDashboardProgress(int Year);
 
         int GetDashboard();

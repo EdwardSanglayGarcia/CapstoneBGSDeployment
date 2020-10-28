@@ -12,6 +12,20 @@ namespace MVCCapstoneBGS
 
     public class DataProvider : DataAccess, IDataProvider
     {
+
+        public List<CaseReport> GetCaseReportPhoto(int CaseReportID)
+        {
+            var result = new List<CaseReport>();
+            using (IDbConnection con = new SqlConnection(constring))
+            {
+                con.Open();
+                result = con.Query<CaseReport>(
+                    StoredProcedureEnum.V_CaseReportPhoto.ToString(), commandType: CommandType.StoredProcedure).ToList();
+                //Gawa ka ng Stored Procedure
+            }
+            return result;
+        }
+
         #region View
         public List<UserType> GetUserType()
         {

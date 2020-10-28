@@ -64,7 +64,8 @@ namespace MVCCapstoneBGS
         U_CaseReport_Finalize_R,
 
         V_Leaderboard_Y,
-        V_Leaderboard_MY
+        V_Leaderboard_MY,
+        V_CaseReportPhoto
 
 
 

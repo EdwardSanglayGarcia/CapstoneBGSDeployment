@@ -69,6 +69,16 @@ namespace MVCCapstoneBGS.Controllers
             return json;
         }
 
+        public ActionResult GetCaseReportPhoto(int CaseReportID)
+        {
+
+            var data = _IDataProvider.GetCaseReportPhoto(CaseReportID);
+            JsonResult json = Json(data, JsonRequestBehavior.AllowGet);
+            json.MaxJsonLength = int.MaxValue;
+            return json;
+        }
+
+
         public ActionResult GetCurrentCaseReport(int UpdatedStatusID)
         {
             var data = _IDataProvider.GetCaseReport(UpdatedStatusID);/*.Where(x=>x.UpdatedStatusDate.Year == DateTime.Now.Year && x.UpdatedStatusID == UpdatedStatusID);*/
