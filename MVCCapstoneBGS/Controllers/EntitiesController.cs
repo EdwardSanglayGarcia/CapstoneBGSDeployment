@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Net;
 
 namespace MVCCapstoneBGS.Controllers
 {
@@ -22,7 +23,7 @@ namespace MVCCapstoneBGS.Controllers
         string Layout_CU = "~/TerraTech/TerraShared/CommunityUser.cshtml";
         string Layout_CUDashboard = "~/TerraTech/TerraShared/CommunityUser.cshtml";
 
-        public ActionResult Administrator(int UpdatedStatusID=0)
+        public ActionResult Administrator(int UpdatedStatusID = 0)
         {
             ViewBag.Title = LabelStruct.Administrator.AdministratorHomepage;
             ViewBag.VBLayout = Layout_ADashboard;
@@ -34,9 +35,9 @@ namespace MVCCapstoneBGS.Controllers
 
 
             string tempEnvironmentalConcernCount = string.Empty;
-            string tempEnvironmentalConcern = string.Empty;          
+            string tempEnvironmentalConcern = string.Empty;
 
-            _IDataProvider.CHART_Display(StoredProcedureEnum.CHART_EnvironmentalConcern.ToString(),DateTime.Now.Year,0,out tempEnvironmentalConcernCount, out tempEnvironmentalConcern);
+            _IDataProvider.CHART_Display(StoredProcedureEnum.CHART_EnvironmentalConcern.ToString(), DateTime.Now.Year, 0, out tempEnvironmentalConcernCount, out tempEnvironmentalConcern);
 
             ViewBag.ECCount = tempEnvironmentalConcernCount.Trim();
             ViewBag.ECName = tempEnvironmentalConcern.Trim();
@@ -74,19 +75,37 @@ namespace MVCCapstoneBGS.Controllers
             const string quote = "\"";
             //var commaSeparated = string.Join(",", _IDataProvider.GetCaseReport(5).Select(mmm => "[" + mmm.XCoordinates + "," + mmm.YCoordinates + "]"));
 
-            var commaSeparated = string.Join(",", _IDataProvider.GetCaseReport(UpdatedStatusID).
-                Select(
-                mmm => "["
-                + quote
-               + "<center><img src='data:image/gif;base64," + mmm.Base64Photo + "' style='width:150px; height:100px;'></center>"
-                  + "Case No: " + mmm.CaseReportID
-                + "<br />Reported on: " + mmm.DateReported
-                + "<br />Updated on: " + mmm.UpdatedStatusDate
-                + "<br />Type: " + mmm.Concern
-                + "<br />City: " + mmm.CaseLocation + " [" + mmm.XCoordinates + "," + mmm.YCoordinates + "]"
-                + quote
-                + "," + mmm.XCoordinates + "," + mmm.YCoordinates + "]"
-                ));
+            //var commaSeparated = string.Join(",", _IDataProvider.GetCaseReport(UpdatedStatusID).
+            //    Select(
+            //    mmm => "["
+            //    + quote
+            //   + "<center><img src='data:image/gif;base64," + mmm.Base64Photo + "' style='width:150px; height:100px;'></center>"
+            //      + "Case No: " + mmm.CaseReportID
+            //    + "<br />Reported on: " + mmm.DateReported
+            //    + "<br />Updated on: " + mmm.UpdatedStatusDate
+            //    + "<br />Type: " + mmm.Concern
+            //    + "<br />City: " + mmm.CaseLocation + " [" + mmm.XCoordinates + "," + mmm.YCoordinates + "]"
+            //    + quote
+            //    + "," + mmm.XCoordinates + "," + mmm.YCoordinates + "]"
+            //    ));
+
+
+
+        var commaSeparated = string.Join(",", _IDataProvider.GetCaseReport(UpdatedStatusID).
+        Select(
+        mmm => "["
+        + quote
+        + "Case No: " + mmm.CaseReportID
+        + "<br />Reported on: " + mmm.DateReported      
+        + "<br />Updated on: " + mmm.UpdatedStatusDate
+        + "<br />Type: " + mmm.Concern
+        + "<br />City: " + mmm.CaseLocation + " [" + Convert.ToDecimal(mmm.XCoordinates).ToString("#.##") + "," + Convert.ToDecimal(mmm.YCoordinates).ToString("#.##") + "]"
+        + quote
+        + "," + mmm.XCoordinates + "," + mmm.YCoordinates + "]"
+        ));
+
+
+
             ViewBag.DUMMY2 = commaSeparated;
 
             return View();
