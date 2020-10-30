@@ -122,6 +122,7 @@
 
 
     var Information = document.getElementById("DisplayInformation");
+
     function providePosition(position) {
 
         var XCoordinate = position.coords.latitude;
@@ -152,6 +153,10 @@
                 FINAL_LONGITUDE = myObj.longitude;
                 FINAL_LOCATION = myObj.city;
 
+                var UserInformationID;
+                UserInformationID = document.getElementById("UserInformationID");
+                UserInformationID.value = @Session["UserInformationID"];
+
                 XCoordinates = document.getElementById("XCoordinates");
                 XCoordinates.value = FINAL_LATITUDE;
 
@@ -163,15 +168,53 @@
                 CaseLocation = document.getElementById("CaseLocation");
                 CaseLocation.value = FINAL_LOCATION;
 
-                var UserInformationID;
-                UserInformationID = document.getElementById("UserInformationID");
-                UserInformationID.value = @Session["UserInformationID"];
+                if (FINAL_LOCATION == "" || FINAL_LOCATION == null) {
+                    var nationalURL = "https://open.mapquestapi.com/nominatim/v1/reverse.php?key=QESE6HFZcLB5cX4DHEpV7YMAFEDZS6i6&format=json&lat=" + XCoordinate + "&lon=" + YCoordinate;
+                    async function getISS() {
+                        const response = await fetch(nationalURL);
+                        const data = await response.json();
+                        //console.log(data.address.city);
+                        //console.log(XCoordinate);
+                        //console.log(YCoordinate);
+                        CaseLocation.value = data.address.city;
+                        if (FINAL_LOCATION == "" || FINAL_LOCATION == null) {
+                            CaseLocation == "UNKNOWN";
+                        }
+                    }
+                    getISS();
+                }
 
             }
         };
     }
 
+    function testKey(position) {
+        var XCoordinate = position.coords.latitude;
+        var YCoordinate = position.coords.longitude;
+        var bigdatacloud_api 
+        async function getISS() {
+            const response = await fetch(bigdatacloud_api);
+            const data = await response.json();
+            console.log(data.address.city);
+            console.log(XCoordinate);
+            console.log(YCoordinate);
+        }
+        getISS();
+    }
 
+    //var bigdatacloud_api = "https://open.mapquestapi.com/nominatim/v1/reverse.php?key=QESE6HFZcLB5cX4DHEpV7YMAFEDZS6i6&format=json&lat=" + XCoordinate + "&lon=" + YCoordinate;
+
+    //async function getISS() {
+    //    const response = await fetch(bigdatacloud_api);
+    //    const data = await response.json();
+    //    console.log(data.address.city);
+    //    console.log(XCoordinate);
+    //    console.log(YCoordinate);
+    //}
+    //getISS();
+
+
+   // getISS();
 
 
 
@@ -192,7 +235,7 @@
             } else {
                 if (log) alert(log);
             }
-     
+
         });
         function readURL(input) {
             if (input.files && input.files[0]) {
