@@ -255,6 +255,12 @@
         return (dt.getMonth() + 1) + "/" + dt.getDate() + "/" + dt.getFullYear();
     };
 
+    function ConvertToTime(value) {
+        var date = new Date(value);
+        alert(date);
+    }
+
+
     var BAR = document.getElementById("myBarChart");
     var myBarChart = new Chart(BAR, {
         type: 'bar',
