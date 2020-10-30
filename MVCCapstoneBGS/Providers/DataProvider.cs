@@ -277,12 +277,10 @@ namespace MVCCapstoneBGS
                 param.Add("@Notes",UI.Notes);
                 param.Add("@Hits",hits);
 
-                for (int i = 0; i <= 100; i++)
-                {
-                    result = con.Query<CaseReport>(
-                   StoredProcedureEnum.I_CaseReport.ToString(), param, commandType: CommandType.StoredProcedure).ToList();
 
-                }
+                result = con.Query<CaseReport>(
+               StoredProcedureEnum.I_CaseReport.ToString(), param, commandType: CommandType.StoredProcedure).ToList();
+
             }
             return result;
         }

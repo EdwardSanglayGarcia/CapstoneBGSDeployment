@@ -485,7 +485,7 @@ namespace MVCCapstoneBGS.Controllers
 
                 for (int loopingMonth = 1; loopingMonth <= 12; loopingMonth++)
                 {
-                    ExcelWorksheet wsL = excelPackage.Workbook.Worksheets.Add(mfi.GetMonthName(loopingMonth)+" " + year + " Land Report");
+                    ExcelWorksheet wsL = excelPackage.Workbook.Worksheets.Add(mfi.GetMonthName(loopingMonth)+" " + year + " Specific Report");
 
                     try
                     {
@@ -711,7 +711,7 @@ namespace MVCCapstoneBGS.Controllers
                         wsL.Cells[SData, 2, SData, 3].Value = SLandSubmit.FamilyName + ", " + SLandSubmit.GivenName + " " + SLandSubmit.MaidenName;
                         wsL.Cells[SData, 4, SData, 5].Value = SLandSubmit.DateReported.ToString();
                         wsL.Cells[SData, 6, SData, 7].Value = SLandSubmit.CaseLocation;
-                        wsL.Cells[SData, 8, SData, 9].Value = SLandSubmit.XCoordinates + "," + SLandSubmit.YCoordinates;
+                        wsL.Cells[SData, 8, SData, 9].Value = Convert.ToDecimal(SLandSubmit.XCoordinates ).ToString("###.###")+ "," + Convert.ToDecimal(SLandSubmit.YCoordinates).ToString("###.###");
                         wsL.Cells[SData, 10, SData, 11].Value = SLandSubmit.UpdatedStatusDate.ToString();
                         wsL.Cells[SData, 12, SData, 13].Value = SLandSubmit.Handler_FamilyName + ", " + SLandSubmit.Handler_GivenName + " " + SLandSubmit.Handler_MaidenName;
 
@@ -866,7 +866,7 @@ namespace MVCCapstoneBGS.Controllers
                         wsL.Cells[AData, 2, AData, 3].Value = SLandAccept.FamilyName + ", " + SLandAccept.GivenName + " " + SLandAccept.MaidenName;
                         wsL.Cells[AData, 4, AData, 5].Value = SLandAccept.DateReported.ToString();
                         wsL.Cells[AData, 6, AData, 7].Value = SLandAccept.CaseLocation;
-                        wsL.Cells[AData, 8, AData, 9].Value = SLandAccept.XCoordinates + "," + SLandAccept.YCoordinates;
+                        wsL.Cells[AData, 8, AData, 9].Value = Convert.ToDecimal(SLandAccept.XCoordinates).ToString("###.###") + "," + Convert.ToDecimal(SLandAccept.YCoordinates).ToString("###.###");
                         wsL.Cells[AData, 10, AData, 11].Value = SLandAccept.UpdatedStatusDate.ToString();
                         wsL.Cells[AData, 12, AData, 13].Value = SLandAccept.Handler_FamilyName + ", " + SLandAccept.Handler_GivenName + " " + SLandAccept.Handler_MaidenName;
 
@@ -1020,7 +1020,7 @@ namespace MVCCapstoneBGS.Controllers
                         wsL.Cells[RData, 2, RData, 3].Value = LLandReject.FamilyName + ", " + LLandReject.GivenName + " " + LLandReject.MaidenName;
                         wsL.Cells[RData, 4, RData, 5].Value = LLandReject.DateReported.ToString();
                         wsL.Cells[RData, 6, RData, 7].Value = LLandReject.CaseLocation;
-                        wsL.Cells[RData, 8, RData, 9].Value = LLandReject.XCoordinates + "," + LLandReject.YCoordinates;
+                        wsL.Cells[RData, 8, RData, 9].Value = Convert.ToDecimal(LLandReject.XCoordinates ).ToString("###.###")+ "," + Convert.ToDecimal(LLandReject.YCoordinates).ToString("###.###");
                         wsL.Cells[RData, 10, RData, 11].Value = LLandReject.UpdatedStatusDate.ToString();
                         wsL.Cells[RData, 12, RData, 13].Value = LLandReject.Handler_FamilyName + ", " + LLandReject.Handler_GivenName + " " + LLandReject.Handler_MaidenName;
 
@@ -1176,7 +1176,7 @@ namespace MVCCapstoneBGS.Controllers
                         wsL.Cells[IPData, 2, IPData, 3].Value = IPLand.FamilyName + ", " + IPLand.GivenName + " " + IPLand.MaidenName;
                         wsL.Cells[IPData, 4, IPData, 5].Value = IPLand.DateReported.ToString();
                         wsL.Cells[IPData, 6, IPData, 7].Value = IPLand.CaseLocation;
-                        wsL.Cells[IPData, 8, IPData, 9].Value = IPLand.XCoordinates + "," + IPLand.YCoordinates;
+                        wsL.Cells[IPData, 8, IPData, 9].Value = Convert.ToDecimal(IPLand.XCoordinates ).ToString("###.###")+ "," + Convert.ToDecimal(IPLand.YCoordinates).ToString("###.###");
                         wsL.Cells[IPData, 10, IPData, 11].Value = IPLand.UpdatedStatusDate.ToString();
                         wsL.Cells[IPData, 12, IPData, 13].Value = IPLand.Handler_FamilyName + ", " + IPLand.Handler_GivenName + " " + IPLand.Handler_MaidenName;
 
@@ -1333,7 +1333,7 @@ namespace MVCCapstoneBGS.Controllers
                         wsL.Cells[CData, 2, CData, 3].Value = CLand.FamilyName + ", " + CLand.GivenName + " " + CLand.MaidenName;
                         wsL.Cells[CData, 4, CData, 5].Value = CLand.DateReported.ToString();
                         wsL.Cells[CData, 6, CData, 7].Value = CLand.CaseLocation;
-                        wsL.Cells[CData, 8, CData, 9].Value = CLand.XCoordinates + "," + CLand.YCoordinates;
+                        wsL.Cells[CData, 8, CData, 9].Value = Convert.ToDecimal(CLand.XCoordinates).ToString("###.###")+ "," + Convert.ToDecimal(CLand.YCoordinates).ToString("###.###");
                         wsL.Cells[CData, 10, CData, 11].Value = CLand.UpdatedStatusDate.ToString();
                         wsL.Cells[CData, 12, CData, 13].Value = CLand.Handler_FamilyName + ", " + CLand.Handler_GivenName + " " + CLand.Handler_MaidenName;
 
@@ -1356,7 +1356,17 @@ namespace MVCCapstoneBGS.Controllers
                 if (Session["DownloadExcel_FileManager"] != null)
                 {
                     byte[] data = Session["DownloadExcel_FileManager"] as byte[];
-                    return File(data, "application/octet-stream", "FileManager.xlsx");
+                    var filename =
+                        "TerraTech " +
+                        DateTime.Now.Year + "." +
+                        DateTime.Now.Month + "." +
+                        DateTime.Now.Day + " " +
+                        DateTime.Now.Hour + "." +
+                        DateTime.Now.Minute + "." +
+                        DateTime.Now.Second + "." +
+                        DateTime.Now.Millisecond +
+                        ".xlsx";
+                    return File(data, "application/octet-stream", filename);
                 }
                 else
                 {
@@ -1382,7 +1392,7 @@ namespace MVCCapstoneBGS.Controllers
                 excelPackage.Workbook.Properties.Created = DateTime.Now;
 
               
-                ExcelWorksheet ws = excelPackage.Workbook.Worksheets.Add(mfi.GetMonthName(month)+" "+year+" Report");
+                ExcelWorksheet ws = excelPackage.Workbook.Worksheets.Add(mfi.GetMonthName(month)+" "+year+" General Report");
                 #region 
                 try
                 {
@@ -1580,7 +1590,7 @@ namespace MVCCapstoneBGS.Controllers
                 #endregion
 
                 #region GenData
-                ExcelWorksheet wsL = excelPackage.Workbook.Worksheets.Add(mfi.GetMonthName(month) + " " + year + " Land Report");
+                ExcelWorksheet wsL = excelPackage.Workbook.Worksheets.Add(mfi.GetMonthName(month) + " " + year + " Specific Report");
 
                 try
                 {
@@ -1806,7 +1816,7 @@ namespace MVCCapstoneBGS.Controllers
                     wsL.Cells[SData, 2, SData, 3].Value = SLandSubmit.FamilyName + ", " + SLandSubmit.GivenName + " " + SLandSubmit.MaidenName;
                     wsL.Cells[SData, 4, SData, 5].Value = SLandSubmit.DateReported.ToString();
                     wsL.Cells[SData, 6, SData, 7].Value = SLandSubmit.CaseLocation;
-                    wsL.Cells[SData, 8, SData, 9].Value = SLandSubmit.XCoordinates + "," + SLandSubmit.YCoordinates;
+                    wsL.Cells[SData, 8, SData, 9].Value = Convert.ToDecimal(SLandSubmit.XCoordinates).ToString("###.###") + "," + Convert.ToDecimal(SLandSubmit.YCoordinates).ToString("###.###");
                     wsL.Cells[SData, 10, SData, 11].Value = SLandSubmit.UpdatedStatusDate.ToString();
                     wsL.Cells[SData, 12, SData, 13].Value = SLandSubmit.Handler_FamilyName + ", " + SLandSubmit.Handler_GivenName + " " + SLandSubmit.Handler_MaidenName;
 
@@ -1961,7 +1971,7 @@ namespace MVCCapstoneBGS.Controllers
                     wsL.Cells[AData, 2, AData, 3].Value = SLandAccept.FamilyName + ", " + SLandAccept.GivenName + " " + SLandAccept.MaidenName;
                     wsL.Cells[AData, 4, AData, 5].Value = SLandAccept.DateReported.ToString();
                     wsL.Cells[AData, 6, AData, 7].Value = SLandAccept.CaseLocation;
-                    wsL.Cells[AData, 8, AData, 9].Value = SLandAccept.XCoordinates + "," + SLandAccept.YCoordinates;
+                    wsL.Cells[AData, 8, AData, 9].Value = Convert.ToDecimal(SLandAccept.XCoordinates).ToString("###.###") + "," + Convert.ToDecimal(SLandAccept.YCoordinates).ToString("###.###");
                     wsL.Cells[AData, 10, AData, 11].Value = SLandAccept.UpdatedStatusDate.ToString();
                     wsL.Cells[AData, 12, AData, 13].Value = SLandAccept.Handler_FamilyName + ", " + SLandAccept.Handler_GivenName + " " + SLandAccept.Handler_MaidenName;
 
@@ -2115,7 +2125,7 @@ namespace MVCCapstoneBGS.Controllers
                     wsL.Cells[RData, 2, RData, 3].Value = LLandReject.FamilyName + ", " + LLandReject.GivenName + " " + LLandReject.MaidenName;
                     wsL.Cells[RData, 4, RData, 5].Value = LLandReject.DateReported.ToString();
                     wsL.Cells[RData, 6, RData, 7].Value = LLandReject.CaseLocation;
-                    wsL.Cells[RData, 8, RData, 9].Value = LLandReject.XCoordinates + "," + LLandReject.YCoordinates;
+                    wsL.Cells[RData, 8, RData, 9].Value = Convert.ToDecimal(LLandReject.XCoordinates).ToString("###.###") + "," + Convert.ToDecimal(LLandReject.YCoordinates).ToString("###.###");
                     wsL.Cells[RData, 10, RData, 11].Value = LLandReject.UpdatedStatusDate.ToString();
                     wsL.Cells[RData, 12, RData, 13].Value = LLandReject.Handler_FamilyName + ", " + LLandReject.Handler_GivenName + " " + LLandReject.Handler_MaidenName;
 
@@ -2271,7 +2281,7 @@ namespace MVCCapstoneBGS.Controllers
                     wsL.Cells[IPData, 2, IPData, 3].Value = IPLand.FamilyName + ", " + IPLand.GivenName + " " + IPLand.MaidenName;
                     wsL.Cells[IPData, 4, IPData, 5].Value = IPLand.DateReported.ToString();
                     wsL.Cells[IPData, 6, IPData, 7].Value = IPLand.CaseLocation;
-                    wsL.Cells[IPData, 8, IPData, 9].Value = IPLand.XCoordinates + "," + IPLand.YCoordinates;
+                    wsL.Cells[IPData, 8, IPData, 9].Value = Convert.ToDecimal(IPLand.XCoordinates).ToString("###.###") + "," + Convert.ToDecimal(IPLand.YCoordinates).ToString("###.###");
                     wsL.Cells[IPData, 10, IPData, 11].Value = IPLand.UpdatedStatusDate.ToString();
                     wsL.Cells[IPData, 12, IPData, 13].Value = IPLand.Handler_FamilyName + ", " + IPLand.Handler_GivenName + " " + IPLand.Handler_MaidenName;
 
@@ -2428,7 +2438,7 @@ namespace MVCCapstoneBGS.Controllers
                     wsL.Cells[CData, 2, CData, 3].Value = CLand.FamilyName + ", " + CLand.GivenName + " " + CLand.MaidenName;
                     wsL.Cells[CData, 4, CData, 5].Value = CLand.DateReported.ToString();
                     wsL.Cells[CData, 6, CData, 7].Value = CLand.CaseLocation;
-                    wsL.Cells[CData, 8, CData, 9].Value = CLand.XCoordinates + "," + CLand.YCoordinates;
+                    wsL.Cells[CData, 8, CData, 9].Value = Convert.ToDecimal(CLand.XCoordinates ).ToString("###.###")  + "," + Convert.ToDecimal(CLand.YCoordinates).ToString("###.###");
                     wsL.Cells[CData, 10, CData, 11].Value = CLand.UpdatedStatusDate.ToString();
                     wsL.Cells[CData, 12, CData, 13].Value = CLand.Handler_FamilyName + ", " + CLand.Handler_GivenName + " " + CLand.Handler_MaidenName;
 
@@ -2436,19 +2446,28 @@ namespace MVCCapstoneBGS.Controllers
                 }
                 #endregion
 
-
                 //DOWNLOAD
                 Session["DownloadExcel_FileManager"] = excelPackage.GetAsByteArray();
                 if (Session["DownloadExcel_FileManager"] != null)
                 {
-                   
                     byte[] data = Session["DownloadExcel_FileManager"] as byte[];
-                    return File(data, "application/octet-stream", "FileManager.xlsx");
+                    var filename =
+                        "TerraTech " +
+                        DateTime.Now.Year + "." +
+                        DateTime.Now.Month + "." +
+                        DateTime.Now.Day + " " +
+                        DateTime.Now.Hour + "." +
+                        DateTime.Now.Minute + "." +
+                        DateTime.Now.Second + "." +
+                        DateTime.Now.Millisecond +
+                        ".xlsx";
+                    return File(data, "application/octet-stream", filename);
                 }
                 else
                 {
                     return new EmptyResult();
                 }
+
             }
         }
 
