@@ -213,8 +213,6 @@ namespace MVCCapstoneBGS
         public List<UserInformation> InsertUserInformation(int UserTypeID, string UserName, string Password, string Email, string GivenName, string MaidenName, string FamilyName)
         ///Insert User information
         {
-
-
                 var result = new List<UserInformation>();
                 using (IDbConnection con = new SqlConnection(constring))
                 {
@@ -232,9 +230,6 @@ namespace MVCCapstoneBGS
                             StoredProcedureEnum.I_UserInformation.ToString(), param, commandType: CommandType.StoredProcedure).ToList();
 
                 }
-
-
-
             return result;
         }
 
