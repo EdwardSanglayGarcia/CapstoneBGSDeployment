@@ -1,4 +1,4 @@
-﻿@model MVCCapstoneBGS.CaseReport 
+﻿@model MVCCapstoneBGS.CaseReport
 @{
     Layout = "~/TerraTech/TerraShared/CommunityUser.cshtml";
 }
@@ -24,6 +24,7 @@
         </div>
     </div>
 
+    @Html.Raw(@TempData["message"])
 
     @using (Html.BeginForm("SubmitReport", "Entities", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
@@ -191,7 +192,7 @@
     function testKey(position) {
         var XCoordinate = position.coords.latitude;
         var YCoordinate = position.coords.longitude;
-        var bigdatacloud_api 
+        var bigdatacloud_api
         async function getISS() {
             const response = await fetch(bigdatacloud_api);
             const data = await response.json();
@@ -219,6 +220,11 @@
 
 
     $(document).ready(function () {
+        //Swal.fire(
+        //    'Good job!',
+        //    'You clicked the button!',
+        //    'success'
+        //)
         $(document).on('change', '.btn-file :file', function () {
             var input = $(this),
                 label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
@@ -291,8 +297,5 @@
     //    alert(FINAL_LATITUDE + ' ' + FINAL_LOCATION + ' ' + FINAL_LATITUDE);
 
     //});
-
-
-
 
 </script>

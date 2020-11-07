@@ -16,11 +16,11 @@ namespace MVCCapstoneBGS.Controllers
         {
             _IDataProvider = new DataProvider();
         }
-
-
+      
         string Layout_ADashboard= "~/TerraTech/TerraShared/AdministratorDashboard.cshtml";
 
         string Layout_CU = "~/TerraTech/TerraShared/CommunityUser.cshtml";
+
         string Layout_CUDashboard = "~/TerraTech/TerraShared/CommunityUser.cshtml";
 
         public ActionResult Administrator(int UpdatedStatusID = 0)
@@ -114,7 +114,6 @@ namespace MVCCapstoneBGS.Controllers
         {
             return View();
         }
-
         public ActionResult LogOut()
         {
             if (((int?)Session["UserInformationID"]) != null)
@@ -207,7 +206,6 @@ namespace MVCCapstoneBGS.Controllers
        
             return View();
         }
-
         public ActionResult MonthlyReports(int Year = 0, int Month = 0)
         {
             ViewBag.Title = LabelStruct.Administrator.MonthlyReports;
@@ -235,8 +233,6 @@ namespace MVCCapstoneBGS.Controllers
 
             return View();
         }
-
-
         public ActionResult YearlyReports(int Year=0, int Month =0)
         {
             ViewBag.Title = LabelStruct.Administrator.YearlyReports;
@@ -262,10 +258,6 @@ namespace MVCCapstoneBGS.Controllers
             ViewBag.CURRENT_YEAR = Year;
             return View();
         }
-
-
-   
-
         public ActionResult Twitter()
         {
             ViewBag.Title = LabelStruct.Administrator.Twitter;
@@ -302,7 +294,6 @@ namespace MVCCapstoneBGS.Controllers
                 "all of which are taken from the submitted data of " + Users + " users";
             return View();
         }
-
         public ActionResult Submitted()
         {
             ViewBag.Title = LabelStruct.Administrator.Submitted;
@@ -329,7 +320,6 @@ namespace MVCCapstoneBGS.Controllers
 
             return View();
         }
-
         public ActionResult Accepted()
         {
             ViewBag.Title = LabelStruct.Administrator.Accepted;
@@ -358,7 +348,6 @@ namespace MVCCapstoneBGS.Controllers
 
             return View();
         }
-
         public ActionResult Rejected()
         {
             ViewBag.Title = LabelStruct.Administrator.Rejected;
@@ -384,7 +373,6 @@ namespace MVCCapstoneBGS.Controllers
 
             return View();
         }
-
         public ActionResult InProgress()
         {
             ViewBag.Title = LabelStruct.Administrator.InProgress;
@@ -410,7 +398,6 @@ namespace MVCCapstoneBGS.Controllers
 
             return View();
         }
-
         public ActionResult Completed()
         {
             ViewBag.Title = LabelStruct.Administrator.Completed;
@@ -511,7 +498,15 @@ namespace MVCCapstoneBGS.Controllers
             ViewBag.VBLayout = Layout_CU;
             ViewBag.DATETIMENOW = DateTime.Now.Date.ToLongDateString() + " - " + DateTime.Now.TimeOfDay;
             ViewBag.Title = LabelStruct.CommunityUser.SubmitReport;
-       //     TempData["message"] = "<script>Swal.fire({ : 'success', title: 'Your work has been saved', showConfirmButton: false, timer: 1500})</script>";
+
+            const string quote = "\"";
+
+            var html = "<div class="+quote+"card mb-4"+quote+ "><div class=" + quote + "card-body" + quote + ">" + "Environmental Concern Submitted! (" + ViewBag.DATETIMENOW + ") " + UI.Concern + " " + UI.CaseLocation+"</div></div>";
+            var script = "<script>Swal.fire( 'Report Submitted!','Please go to View Status to check the progress of your report!','success')</script>";
+            //TempData["message"] = "Environmental Concern Submitted! ("+ViewBag.DATETIMENOW+") "+UI.Concern+" "+UI.CaseLocation;
+            TempData["message"] = script;
+
+
             return View();
         }
         public ActionResult ViewStatus()
