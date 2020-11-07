@@ -226,9 +226,10 @@ namespace MVCCapstoneBGS
                     param.Add("@MaidenName", MaidenName);
                     param.Add("@FamilyName", FamilyName);
 
+             
                     result = con.Query<UserInformation>(
                             StoredProcedureEnum.I_UserInformation.ToString(), param, commandType: CommandType.StoredProcedure).ToList();
-
+              
                 }
             return result;
         }

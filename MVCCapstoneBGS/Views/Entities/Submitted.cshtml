@@ -82,29 +82,27 @@
 
                         <div class="col-md-5">
                             <div class="md-form mb-3">
-                                <input type="text" id="tbCaseReportNo" class="form-control validate" disabled>
                                 <label data-error="wrong" data-success="right" for="orangeForm-name">Case Report No.</label>
+                                <input type="text" id="tbCaseReportNo" class="form-control validate" disabled>
                             </div>
                             <div class="md-form mb-3">
-                                <input type="text" id="tbCaseLocation" class="form-control validate" disabled>
                                 <label data-error="wrong" data-success="right" for="orangeForm-name">Case Location</label>
+                                <input type="text" id="tbCaseLocation" class="form-control validate" disabled>
                             </div>
                             <div class="md-form mb-3">
-                                <input type="text" id="tbConcern" class="form-control validate" disabled>
                                 <label data-error="wrong" data-success="right" for="orangeForm-text">Concern</label>
+                                <input type="text" id="tbConcern" class="form-control validate" disabled>
                             </div>
                             <div class="md-form mb-3">
-                                <input type="text" id="tbDateReported" class="form-control validate" disabled>
                                 <label data-error="wrong" data-success="right" for="orangeForm-text">Date Reported</label>
+                                <input type="text" id="tbDateReported" class="form-control validate" disabled>
                             </div>
+             
                             <div class="md-form mb-3">
-                                <input type="text" id="tbDateUpdated" class="form-control validate" disabled>
-                                <label data-error="wrong" data-success="right" for="orangeForm-text">Date Updated</label>
+                                <label data-error="wrong" data-success="right" for="orangeForm-text">Description</label>
+                                <textarea class="form-control" style="resize:none;" id="tbDateUpdated" rows="5" disabled></textarea>
                             </div>
-                            <div class="md-form mb-3">
-                                <input type="email" id="tbReporter" class="form-control validate" disabled>
-                                <label data-error="wrong" data-success="right" for="orangeForm-name">Reported by</label>
-                            </div>
+
 
 
                         </div>
@@ -396,8 +394,9 @@
         document.getElementById("tbCaseLocation").value = data["CaseLocation"] + " [" + (Math.round(data["XCoordinates"] * 100) / 100).toFixed(2) + "," + (Math.round(data["YCoordinates"] * 100) / 100).toFixed(2) +"]";
         document.getElementById("tbConcern").value = data["Concern"];
         document.getElementById("tbDateReported").value = ConvertToDate(data["DateReported"]);
-        document.getElementById("tbDateUpdated").value = ConvertToDate(data["UpdatedStatusDate"]);
-        document.getElementById("tbReporter").value = data["FamilyName"];
+        //document.getElementById("tbDateUpdated").value = ConvertToDate(data["UpdatedStatusDate"]);
+        document.getElementById("tbDateUpdated").value = data["Notes"];
+        //document.getElementById("tbReporter").value = data["FamilyName"];
 
 
 

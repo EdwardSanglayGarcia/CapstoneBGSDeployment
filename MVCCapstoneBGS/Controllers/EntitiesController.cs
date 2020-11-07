@@ -464,7 +464,6 @@ namespace MVCCapstoneBGS.Controllers
                 Select(
                 mmm => "["
                 +quote
-                + "<center><img src='data:image/gif;base64," + mmm.Base64Photo+"' style='width:150px; height:100px;'></center>"
                 +"Case No: "+mmm.CaseReportID
                 +"<br />Reported on: "+mmm.DateReported
                 +"<br />Updated on: "+mmm.UpdatedStatusDate
@@ -475,6 +474,7 @@ namespace MVCCapstoneBGS.Controllers
                 ));
             ViewBag.DUMMY2 = commaSeparated;
 
+                //+ "<center><img src='data:image/gif;base64," + mmm.Base64Photo+"' style='width:150px; height:100px;'></center>"
 
 
 
