@@ -39,36 +39,36 @@
     <div class="row">
         <div class="col-xl-3 col-md-6">
             <div class="card bg-primary text-white mb-4">
-                <div class="card-body">Solved Water Cases: @ViewBag.VBWater</div>
+                <div class="card-body">Solved Water Cases</div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link">View Details</a>
+                    <a class="small text-white stretched-link">@ViewBag.VBWater</a>
                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                 </div>
             </div>
         </div>
         <div class="col-xl-3 col-md-6">
             <div class="card bg-warning text-white mb-4">
-                <div class="card-body">Solved Land Cases: @ViewBag.VBLand</div>
+                <div class="card-body">Solved Land Cases</div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link">View Details</a>
+                    <a class="small text-white stretched-link">@ViewBag.VBLand</a>
                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                 </div>
             </div>
         </div>
         <div class="col-xl-3 col-md-6">
             <div class="card bg-success text-white mb-4">
-                <div class="card-body">Pending Cases: @ViewBag.VBProgress</div>
+                <div class="card-body">Pending Cases</div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link">View Details</a>
+                    <a class="small text-white stretched-link">@ViewBag.VBProgress</a>
                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                 </div>
             </div>
         </div>
         <div class="col-xl-3 col-md-6">
             <div class="card bg-danger text-white mb-4">
-                <div class="card-body">Community Users: @ViewBag.VBUsers</div>
+                <div class="card-body">Community Users</div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link">View Details</a>
+                    <a class="small text-white stretched-link">@ViewBag.VBUsers</a>
                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                 </div>
             </div>
@@ -213,7 +213,7 @@
             <div class="control-label col-xs-12 col-sm-4">
                 <label class="asteriskRequired"></label>
             </div>
-            <div style="padding-top:25px; height:750px" id='map'></div>
+            <div style="padding-top:25px; height:500px" id='map'></div>
         </div>
         <div class="card-footer small text-muted">Data as of @ViewBag.DATETIMENOW</div>
     </div>
@@ -226,7 +226,6 @@
         LoadMap();
         LoadCaseReport();
         LoadUpdatedStatusDDL();
-      
     });
 
     $(document).on("change", ".UpdatedStatusDDL", function () {
@@ -250,8 +249,6 @@
         }
     });
 
-
-
     function LoadUpdatedStatusDDL() {
         var temp = $(".UpdatedStatusDDL").empty();
         temp.append($("<option>Select Status</option>"));
@@ -267,8 +264,6 @@
             }
         })
     };
-
-
 
     function LoadMap() {
     var map = L.map('map');
@@ -307,8 +302,6 @@
             map.invalidateSize();
         }, 10);
     };
-
-
 
     $(document).on("click", ".AddUserType", function () {
         $('#myModalAdd').modal('show');
@@ -396,17 +389,6 @@
         return color;
     }
 
-    /*LIGHT COLORS
-     *  function getRandomColor() {
-                var letters = 'BCDEF'.split('');
-                var color = '#';
-                for (var i = 0; i < 6; i++ ) {
-                    color += letters[Math.floor(Math.random() * letters.length)];
-                }
-                return color;
-            }
-     * */
-
     var PIE = document.getElementById("myPieChart");
     var myPieChart = new Chart(PIE, {
         type: 'pie',
@@ -448,5 +430,15 @@
 
     //function onClick(e) { alert('lol'); }
 
+    /*LIGHT COLORS
+     *  function getRandomColor() {
+                var letters = 'BCDEF'.split('');
+                var color = '#';
+                for (var i = 0; i < 6; i++ ) {
+                    color += letters[Math.floor(Math.random() * letters.length)];
+                }
+                return color;
+            }
+     * */
 
 </script>
