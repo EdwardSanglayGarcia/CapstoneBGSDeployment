@@ -173,14 +173,8 @@
                                 <label data-error="wrong" data-success="right" for="orangeForm-text">Notes</label>
                                 <textarea class="form-control" style="resize:none;" id="tbNotes" rows="2" disabled></textarea>
                             </div>
-
-
-
                         </div>
-
-
                     </div>
-
                 </div>
 
                 <div class="modal-footer">
@@ -216,7 +210,7 @@
     $('.leaflet-control-attribution').hide();
 
     $('#myModalUpdate').on('shown.bs.modal', function () {
-      
+
         $('#myModalUpdate').modal('show');
 
         setTimeout(function () {
@@ -373,7 +367,7 @@
                             'Coordinates': "(" + c.XCoordinates + "," + c.YCoordinates + ")",
                             'DateUpdated': c.DateUpdated,
                             'Notes': c.Notes,
-                          
+
                         });
                     }
                     return a;
@@ -437,7 +431,7 @@
         });
 
         return table;
-    };
+    }c;
 
     function LoadAcceptedTable() {
         table = $('#AcceptedTable').DataTable({
@@ -474,7 +468,7 @@
                             'Coordinates': "(" + c.XCoordinates + "," + c.YCoordinates + ")",
                             'DateUpdated': c.DateUpdated,
                             'Notes': c.Notes,
-                         
+
                         });
                     }
                     return a;
@@ -679,7 +673,7 @@
                             'Coordinates': "(" + c.XCoordinates + "," + c.YCoordinates + ")",
                             'DateUpdated': c.DateUpdated,
                             'Notes': c.Notes,
-                          
+
                         });
                     }
                     return a;
