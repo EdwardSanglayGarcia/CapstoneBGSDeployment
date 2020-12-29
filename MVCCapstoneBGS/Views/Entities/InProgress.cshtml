@@ -183,7 +183,7 @@
             bLengthChange: false,
             destroy: true,
             responsive: true,
-            order: [[1, 'asc']],
+            order: [[5, 'desc']],
             ajax: {
                 type: "GET",
                 "url": "/DataGet/GetCurrentCaseReport?UpdatedStatusID=4",
@@ -208,6 +208,8 @@
                             'YCoordinates': c.YCoordinates,
                             'Coordinates': "(" + c.XCoordinates + "," + c.YCoordinates + ")",
                             'Notes': c.Notes,
+                            'Hits': c.Hits
+
                         
                         });
                     }
@@ -248,6 +250,10 @@
                 {
                     title: "Concern",
                     data: "Concern"
+                },
+                {
+                    title: "Priority",
+                    data: "Hits"
                 },
 
             ],
