@@ -8,7 +8,7 @@ namespace MVCCapstoneBGS
     public class DefaultData
     {
         public string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/Capstone Generated Document";
-
+        //public string PhotoPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Photo\";
         public string CONSUMER_KEY = "N5rwRYcClshCYS0qW0qsySmvx";
         public string CONSUMER_SECRET = "57ywSvpsf0jLvdYQIaJLQJYveufqDI4QqmFoGLcl56UbeRHsvq";
         public string ACCESS_TOKEN = "1258097237348896769-AL5rIiYea1qvhRS2PDzUZvrc0CoNAz";

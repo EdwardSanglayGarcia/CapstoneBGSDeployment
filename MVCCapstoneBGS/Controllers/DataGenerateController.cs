@@ -21,6 +21,10 @@ namespace MVCCapstoneBGS.Controllers
     {
 
         IDataProvider _IDataProvider;
+
+        public string PhotoPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Photo\";
+
+
         public DataGenerateController()
         {
             _IDataProvider = new DataProvider();
@@ -50,7 +54,8 @@ namespace MVCCapstoneBGS.Controllers
 
         public void TweetSomething(string message)
         {
-            string image = @"C:\Users\pc\Desktop\Photo\Status.png";
+            //string image = @"C:\Users\pc\Desktop\Photo\Status.png";
+            string image = PhotoPath+"Status.png";
 
             var imahe = _IDataProvider.GetCaseReport(1).Select(x => x.Base64Photo).FirstOrDefault();
 
@@ -71,8 +76,9 @@ namespace MVCCapstoneBGS.Controllers
 
         public void TweetArea(string message)
         {
- 
-            string image = @"C:\Users\pc\Desktop\Photo\Area Report.png";
+
+            //string image = @"C:\Users\pc\Desktop\Photo\Area Report.png";
+            string image = PhotoPath + @"Area Report.png";
 
             var imahe = _IDataProvider.GetCaseReport(1).Select(x => x.Base64Photo).FirstOrDefault();
 
@@ -95,7 +101,8 @@ namespace MVCCapstoneBGS.Controllers
         {
             //string image;
             //image = @"C:\Users\pc\Desktop\Capstone Codes\Final Web Application\MVCCapstoneBGS\TerraMaster\upload\shutterstock_124871620.jpg";
-            string image = @"C:\Users\pc\Desktop\Photo\Status Report.png";
+            //string image = @"C:\Users\pc\Desktop\Photo\Status Report.png";
+            string image = PhotoPath + "Status Report.png";
             DefaultData cmd = new DefaultData();
 
             var service = new TwitterService(cmd.CONSUMER_KEY, cmd.CONSUMER_SECRET);
@@ -116,7 +123,8 @@ namespace MVCCapstoneBGS.Controllers
 
         public void TweetUpdatedStatus(string message)
         {
-            string image = @"C:\Users\pc\Desktop\Photo\Status.png";
+            //string image = @"C:\Users\pc\Desktop\Photo\Status.png";
+            string image = PhotoPath + "Status.png";
 
             var imahe = _IDataProvider.GetCaseReport(1).Select(x => x.Base64Photo).FirstOrDefault();
 
@@ -158,13 +166,13 @@ namespace MVCCapstoneBGS.Controllers
                     int height = 230;
                     int width = 230;
 
-                    string DENRLogo = @"C:\Users\pc\Desktop\DENRLogo.png";
+                    string DENRLogo = @"C:\Users\pc\Desktop\Photo\DENRLogo.png";
                     Image DENRLOGO = Image.FromFile(DENRLogo);
                     ExcelPicture picDENR = ws.Drawings.AddPicture("DENR", DENRLOGO);
                     picDENR.SetPosition(0, 0, 0, 0);//5,3
                     picDENR.SetSize(height, width);
 
-                    string PHLogo = @"C:\Users\pc\Desktop\PHLogo.png";
+                    string PHLogo = @"C:\Users\pc\Desktop\Photo\PHLogo.png";
                     Image PHILIPPINELOGO = Image.FromFile(PHLogo);
                     ExcelPicture picPH = ws.Drawings.AddPicture("PH", PHILIPPINELOGO);
                     picPH.SetPosition(0, 0, 10, 0);//5,3
@@ -492,13 +500,13 @@ namespace MVCCapstoneBGS.Controllers
                         int height = 230;
                         int width = 230;
 
-                        string DENRLogo = @"C:\Users\pc\Desktop\DENRLogo.png";
+                        string DENRLogo = @"C:\Users\pc\Desktop\Photo\DENRLogo.png";
                         Image DENRLOGO = Image.FromFile(DENRLogo);
                         ExcelPicture picDENR = wsL.Drawings.AddPicture("DENR", DENRLOGO);
                         picDENR.SetPosition(0, 0, 0, 0);//5,3
                         picDENR.SetSize(height, width);
 
-                        string PHLogo = @"C:\Users\pc\Desktop\PHLogo.png";
+                        string PHLogo = @"C:\Users\pc\Desktop\Photo\PHLogo.png";
                         Image PHILIPPINELOGO = Image.FromFile(PHLogo);
                         ExcelPicture picPH = wsL.Drawings.AddPicture("PH", PHILIPPINELOGO);
                         picPH.SetPosition(0, 0, 10, 0);//5,3
@@ -1400,13 +1408,13 @@ namespace MVCCapstoneBGS.Controllers
                     int height = 230;
                     int width = 230;
 
-                    string DENRLogo = @"C:\Users\pc\Desktop\DENRLogo.png";
+                    string DENRLogo = @"C:\Users\pc\Desktop\Photo\DENRLogo.png";
                     Image DENRLOGO = Image.FromFile(DENRLogo);
                     ExcelPicture picDENR = ws.Drawings.AddPicture("DENR", DENRLOGO);
                     picDENR.SetPosition(0, 0, 0, 0);//5,3
                     picDENR.SetSize(height, width);
 
-                    string PHLogo = @"C:\Users\pc\Desktop\PHLogo.png";
+                    string PHLogo = @"C:\Users\pc\Desktop\Photo\PHLogo.png";
                     Image PHILIPPINELOGO = Image.FromFile(PHLogo);
                     ExcelPicture picPH = ws.Drawings.AddPicture("PH", PHILIPPINELOGO);
                     picPH.SetPosition(0, 0, 10, 0);//5,3
@@ -1597,13 +1605,13 @@ namespace MVCCapstoneBGS.Controllers
                     int height = 230;
                     int width = 230;
 
-                    string DENRLogo = @"C:\Users\pc\Desktop\DENRLogo.png";
+                    string DENRLogo = @"C:\Users\pc\Desktop\Photo\DENRLogo.png";
                     Image DENRLOGO = Image.FromFile(DENRLogo);
                     ExcelPicture picDENR = wsL.Drawings.AddPicture("DENR", DENRLOGO);
                     picDENR.SetPosition(0, 0, 0, 0);//5,3
                     picDENR.SetSize(height, width);
 
-                    string PHLogo = @"C:\Users\pc\Desktop\PHLogo.png";
+                    string PHLogo = @"C:\Users\pc\Desktop\Photo\PHLogo.png";
                     Image PHILIPPINELOGO = Image.FromFile(PHLogo);
                     ExcelPicture picPH = wsL.Drawings.AddPicture("PH", PHILIPPINELOGO);
                     picPH.SetPosition(0, 0, 10, 0);//5,3
