@@ -11,4 +11,6 @@
 Researchers<br />
 John Benjet M. Bendita<br />
 Edward S. Garcia<br />
-Jericho Matthew A. Suaverdez II<br />
+
+Adviser<br />
+Prof. Grace Lorraine D. Intal
